@@ -35,7 +35,7 @@ function addData() {
     });
 
     let loan1 = db.Loan.create({
-        dueDate: new Date(2019, 03, 27)
+        dueDate: new Date(2019, 3, 27)
     });
 
     // wait for all the objects to save and then instantiate relationships.
