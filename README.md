@@ -47,8 +47,8 @@ Returns a list of all Authors in the database. If requested with the parameter `
 Accepted query parameters: `allEntities`
 
 ```
-GET http://127.0.0.1/authors
-GET http://127.0.0.1/authors?allEntities=true
+GET http://127.0.0.1:3000/authors
+GET http://127.0.0.1:3000/authors?allEntities=true
 ```
 
 **GET /:authorID**
@@ -58,8 +58,8 @@ Returns the Author with the specified `authorID`. If requested with the paramete
 Accepted query parameters: `allEntities`
 
 ```
-GET http://127.0.0.1/authors/1
-GET http://127.0.0.1/authors/1?allEntities=true
+GET http://127.0.0.1:3000/authors/1
+GET http://127.0.0.1:3000/authors/1?allEntities=true
 ```
 
 **PUT /:authorID**
@@ -69,7 +69,7 @@ Updates the Author with the specified `authorID`. Fields to be updated should be
 Accepted body fields: `name`
 
 ```
-PUT http://127.0.0.1/authors/1
+PUT http://127.0.0.1:3000/authors/1
 {"name" : "Dave"}
 ```
 
@@ -78,7 +78,7 @@ PUT http://127.0.0.1/authors/1
 Deletes the Author with the specified `authorID`
 
 ```
-DELETE http://127.0.0.1/authors/1
+DELETE http://127.0.0.1:3000/authors/1
 ```
 
 **POST /**
@@ -88,7 +88,7 @@ Creates a new Author. Fields for the Author should be included as the body of th
 Accepted body fields: `name`
 
 ```
-POST http://127.0.0.1/authors
+POST http://127.0.0.1:3000/authors
 {"name" : "Dave"}
 ```
 
@@ -99,7 +99,7 @@ Adds a Book to the list of books written by the Author with the specified `autho
 Accepted body fields: `bookTitle`, `bookISBN`
 
 ```
-POST http://127.0.0.1/authors/1/books
+POST http://127.0.0.1:3000/authors/1/books
 {
     "bookTitle": "Building Library Systems",
     "bookISBN": "3985789305"
@@ -111,7 +111,7 @@ POST http://127.0.0.1/authors/1/books
 Adds the Book with the specified `bookID` to the list of books written by the Author with the specified `authorID`
 
 ```
-POST http://127.0.0.1/authors/1/books/1
+POST http://127.0.0.1:3000/authors/1/books/1
 ```
 
 ### `books/...`
@@ -123,8 +123,8 @@ Returns a list of all Books in the database. If requested with the parameter `al
 Accepted query parameters: `allEntities`
 
 ```
-GET http://127.0.0.1/books
-GET http://127.0.0.1/books?allEntities=true
+GET http://127.0.0.1:3000/books
+GET http://127.0.0.1:3000/books?allEntities=true
 ```
 
 **GET /:bookID**
@@ -134,8 +134,8 @@ Returns the Book with the specified `bookID`. If requested with the parameter `a
 Accepted query parameters: `allEntities`
 
 ```
-GET http://127.0.0.1/books/1
-GET http://127.0.0.1/books/1?allEntities=true
+GET http://127.0.0.1:3000/books/1
+GET http://127.0.0.1:3000/books/1?allEntities=true
 ```
 
 **PUT /:bookID**
@@ -145,7 +145,7 @@ Updates the Book with the specified `bookID`. Fields to be updated should be inc
 Accepted fields: `title`, `isbn`
 
 ```
-PUT http://127.0.0.1/books/1
+PUT http://127.0.0.1:3000/books/1
 {
     "title": "Building Library Systems",
     "isbn": "3985789305"
@@ -157,7 +157,7 @@ PUT http://127.0.0.1/books/1
 Deletes the Book with the specified `bookID`
 
 ```
-DELETE http://127.0.0.1/books/1
+DELETE http://127.0.0.1:3000/books/1
 ```
 
 **POST /**
@@ -167,7 +167,7 @@ Creates a new Book. Fields for the Book should be included as the body of the PO
 Accepted fields: `title`, `isbn`
 
 ```
-POST http://127.0.0.1/books
+POST http://127.0.0.1:3000/books
 {
     "title": "Building Library Systems",
     "isbn": "3985789305"
@@ -181,7 +181,7 @@ Adds an Author to the list of authors for the Book with the specified `bookID`. 
 Accepted fields: `name`
 
 ```
-POST http://127.0.0.1/books/1/authors
+POST http://127.0.0.1:3000/books/1/authors
 {"name": "David"}
 ```
 
@@ -190,7 +190,7 @@ POST http://127.0.0.1/books/1/authors
 Adds the Author with the specified `auhtorID` to the list of authors of the Book with the specified `bookID`
 
 ```
-POST http://127.0.0.1/books/1/authors/2
+POST http://127.0.0.1:3000/books/1/authors/2
 ```
 
 ### `users/...`
@@ -200,7 +200,7 @@ POST http://127.0.0.1/books/1/authors/2
 Returns a list of all Users in the database
 
 ```
-GET http://127.0.0.1/users
+GET http://127.0.0.1:3000/users
 ```
 
 **GET /:userID**
@@ -208,7 +208,7 @@ GET http://127.0.0.1/users
 Returns the User with the specified `userID`
 
 ```
-GET http://127.0.0.1/users/1
+GET http://127.0.0.1:3000/users/1
 ```
 
 **POST /**
@@ -218,7 +218,7 @@ Creates a new User. Fields for the new User should be included in the body of th
 Accepted body fields: `name`, `barcode`, `memberType`
 
 ```
-POST http://127.0.0.1/users
+POST http://127.0.0.1:3000/users
 {
     "name": "Sarah",
     "barcode": "39587985",
@@ -233,7 +233,7 @@ Updates the details of the User with the specified `userID`. Fields to be update
 Accepted body fields: `name`, `barcode`, `memberType`
 
 ```
-PUT http://127.0.0.1/users/1
+PUT http://127.0.0.1:3000/users/1
 {
     "name": "Sarah",
     "barcode": "39587985",
@@ -246,7 +246,7 @@ PUT http://127.0.0.1/users/1
 Deletes the User with the specified `userID`.
 
 ```
-DELETE http://127.0.0.1/users/1
+DELETE http://127.0.0.1:3000/users/1
 ```
 
 **GET /:userID/loans**
@@ -254,7 +254,7 @@ DELETE http://127.0.0.1/users/1
 Returns the list of Loans for the User with the specified `userID`.
 
 ```
-POST http://127.0.0.1/users/1/loans
+POST http://127.0.0.1:3000/users/1/loans
 ```
 
 **POST /:userID/loans/:bookID**
@@ -264,7 +264,7 @@ Creates or Updates a Loan for the User with the specified `userID` and the Book 
 Accepted body fields: `dueDate`
 
 ```
-POST http://127.0.0.1/users/1/loans/2
+POST http://127.0.0.1:3000/users/1/loans/2
 {"dueDate": "2018-12-31"}
 ```
 
@@ -275,7 +275,7 @@ POST http://127.0.0.1/users/1/loans/2
 Returns a list of all Loans in the Database
 
 ```
-GET http://127.0.0.1/loans
+GET http://127.0.0.1:3000/loans
 ```
 
 **GET /:loanID**
@@ -283,7 +283,7 @@ GET http://127.0.0.1/loans
 Returns the details of the Loan with the specified `loanID`
 
 ```
-GET http://127.0.0.1/loans/1
+GET http://127.0.0.1:3000/loans/1
 ```
 
 **PUT /:loanID**
@@ -293,7 +293,7 @@ Updates the details of the Loan with the specified `loanID`. Fields to be update
 Accepted body fields: `dueDate`
 
 ```
-GET http://127.0.0.1/loans/1
+GET http://127.0.0.1:3000/loans/1
 {"dueDate": "2018-12-31"}
 ```
 
@@ -302,7 +302,7 @@ GET http://127.0.0.1/loans/1
 Deletes the Loan with the specified `loanID`
 
 ```
-DELETE http://127.0.0.1/loans/1
+DELETE http://127.0.0.1:3000/loans/1
 ```
 
 ### `/search`
@@ -314,9 +314,9 @@ Searches for a particular item in the database. Parameters are used to control w
 Parameters accepted: `type` + [`title`, `isbn`] + [`name`] + [`name`, `barcode`, `memberType`]
 
 ```
-GET http://127.0.0.1/search?type=book&title=javascript
-GET http://127.0.0.1/search?type=author&name=david
-GET http://127.0.0.1/search?type=user&barcode=3265897236
+GET http://127.0.0.1:3000/search?type=book&title=javascript
+GET http://127.0.0.1:3000/search?type=author&name=david
+GET http://127.0.0.1:3000/search?type=user&barcode=3265897236
 ```
 
 ## Editing the server
