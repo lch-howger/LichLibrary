@@ -2,20 +2,27 @@ const createError = require("http-errors");
 const express = require("express");
 const cors = require("cors");
 const db = require("./data");
+const path = require("path");
+const fs = require("fs");
 
 let authorsRouter = require("./routes/authors");
 let booksRouter = require("./routes/books");
 let usersRouter = require("./routes/users");
 let loansRouter = require("./routes/loans");
 let searchRouter = require("./routes/search");
+let indexRouter = require("./routes/index");
 
 let server = express();
+
+// set views
+// server.set('views', path.join(__dirname, 'views'));
+// server.set('view engine', 'html');
 
 // interpret JSON body of requests
 server.use(express.json());
 
 // interpret url-encoded queries
-server.use(express.urlencoded({ extended: false }));
+server.use(express.urlencoded({extended: false}));
 
 // allow CORS
 server.use(cors());
@@ -28,15 +35,18 @@ server.use("/books", booksRouter);
 server.use("/users", usersRouter);
 server.use("/loans", loansRouter);
 server.use("/search", searchRouter);
+server.use("/", indexRouter);
+
+// server.use("/", express.static(path.join(__dirname, 'views', 'index.html')));
 
 // handle errors last
-server.use(function(err, req, res, next) {
+server.use(function (err, req, res, next) {
     res.status = err.status || 500;
     res.send(err);
 });
 
 // connect to the database and start the server running
 db.initialiseDatabase(false, null);
-server.listen(3000, function() {
+server.listen(3000, function () {
     console.log("server listening");
 });
