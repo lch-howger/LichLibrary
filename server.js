@@ -14,10 +14,6 @@ let indexRouter = require("./routes/index");
 
 let server = express();
 
-// set views
-// server.set('views', path.join(__dirname, 'views'));
-// server.set('view engine', 'html');
-
 // interpret JSON body of requests
 server.use(express.json());
 
@@ -30,14 +26,17 @@ server.use(cors());
 // allow CORS preflight for all routes
 server.options("*", cors());
 
+// set routers
 server.use("/authors", authorsRouter);
 server.use("/books", booksRouter);
 server.use("/users", usersRouter);
 server.use("/loans", loansRouter);
 server.use("/search", searchRouter);
+server.use("/index", indexRouter);
 server.use("/", indexRouter);
 
-// server.use("/", express.static(path.join(__dirname, 'views', 'index.html')));
+// set static views
+server.use('/views', express.static('views'));
 
 // handle errors last
 server.use(function (err, req, res, next) {
@@ -47,6 +46,8 @@ server.use(function (err, req, res, next) {
 
 // connect to the database and start the server running
 db.initialiseDatabase(false, null);
+
+// listen 3000
 server.listen(3000, function () {
     console.log("server listening");
 });
