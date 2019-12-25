@@ -1,0 +1,23 @@
+
+.list_item {
+    border: 1px solid black;
+}
+
+.list_item:hover {
+    background-color: lavender;
+}
+
+.list_item_div{
+    height: 120px;
+}
+
+.list_item_img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 10px;
+}
+
+.list_item_text_div {
+    float: left;
+}
