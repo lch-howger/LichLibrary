@@ -34,7 +34,11 @@ server.use("/users", usersRouter);
 server.use("/loans", loansRouter);
 server.use("/search", searchRouter);
 server.use("/", indexRouter);
-server.use("*", errorRouter);
+// server.use("*", errorRouter);
+
+// server.use(function (req, res) {
+//     res.sendfile("./dist/error.html");
+// });
 
 // set static views
 server.use('/views', express.static('views'));
