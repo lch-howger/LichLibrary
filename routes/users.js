@@ -15,13 +15,17 @@ router.get("/list", function(req, res) {
 });
 
 router.get("/:userID", function(req, res) {
-    db.User.findByPk(req.params.userID).then(function(user) {
-        if (user) {
-            ret.json(user, res);
-        } else {
-            res.end();
-        }
-    });
+    if (req.query.allEntities == "true") {
+        db.User.findByPk(req.params.userID).then(function (user) {
+            if (user) {
+                ret.json(user, res);
+            } else {
+                res.end();
+            }
+        });
+    } else {
+        res.sendfile("./dist/detail.html");
+    }
 });
 
 router.get("/:userID/loans", function(req, res) {

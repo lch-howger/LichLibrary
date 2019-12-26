@@ -30,13 +30,14 @@ router.get("/:bookID", function(req, res) {
             }
         });
     } else {
-        db.Book.findByPk(req.params.bookID).then(function(book) {
-            if (book) {
-                ret.json(book, res);
-            } else {
-                res.end();
-            }
-        });
+        res.sendfile("./dist/detail.html");
+        // db.Book.findByPk(req.params.bookID).then(function(book) {
+        //     if (book) {
+        //         ret.json(book, res);
+        //     } else {
+        //         res.end();
+        //     }
+        // });
     }
 });
 

@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1ebce43-3953-461f-970e-567eddd32b27" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dist/detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/include/footer_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/js/detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/authors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/books.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/loans.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/loans.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/authors.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/authors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_test.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/include/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/include/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/include/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/include/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/js/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/books.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/books.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/loans.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/loans.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +82,7 @@
       <workItem from="1577127969723" duration="3938000" />
       <workItem from="1577186392625" duration="25203000" />
       <workItem from="1577358187118" duration="4115000" />
-      <workItem from="1577379545634" duration="6238000" />
+      <workItem from="1577379545634" duration="6553000" />
     </task>
     <servers />
   </component>
