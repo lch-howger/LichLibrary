@@ -6,7 +6,24 @@
 </head>
 <body>
 
-@@include('include/header.html')
+@@include('include/header_public.html')
+
+<form action="">
+    <label for="check_name">
+        <input name="search" type="radio" id="check_name" checked="checked">
+        <span>Name</span>
+    </label>
+    <label for="check_barcode">
+        <input name="search" type="radio" id="check_barcode">
+        <span>Barcode</span>
+    </label>
+    <label for="check_membertype">
+        <input name="search" type="radio" id="check_membertype">
+        <span>Member Type</span>
+    </label>
+</form>
+
+@@include('include/header_search.html')
 
 <ul id="authors_list"></ul>
 

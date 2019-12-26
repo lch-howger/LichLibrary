@@ -1,13 +1,18 @@
 const base_url = "http://127.0.0.1:3000";
-let first_path = '/' + url_pathname[1];
+let first_path = url_pathname[1];
 
 function updateList(target_url) {
 
     // set up and make a GET request to the Authors endpoint
     let xhttp = new XMLHttpRequest();
-    let query_url = base_url + target_url + '/list';
+    let query_url = base_url +'/'+ target_url + '/list';
     xhttp.open('GET', query_url);
 
+    loadData(xhttp, target_url);
+
+}
+
+function loadData(xhttp, target_url) {
     // when the request is finished, go through the return data
     // and add each author to the list
     xhttp.addEventListener('load', function () {
@@ -28,7 +33,7 @@ function updateList(target_url) {
 
             //a
             let list_item_a = document.createElement('a');
-            initListItemA(target_url, list_item_a, author);
+            list_item_a.setAttribute('href', base_url +'/'+ target_url + '/' + author.id);
             list_item.appendChild(list_item_a);
 
             //div
@@ -51,24 +56,21 @@ function updateList(target_url) {
             initListItemTextDiv(target_url, list_item_text_div, author);
 
         })
+
     });
 
     xhttp.send();
 }
 
-function initListItemA(target_url, list_item_a, author) {
-    list_item_a.setAttribute('href', base_url + target_url + '/' + author.id);
-}
-
 function initListItemTextDiv(target_url, list_item_text_div, author) {
     let text = document.createTextNode('Null');
-    if (target_url == '/authors') {
+    if (target_url == 'authors') {
         text = document.createTextNode(author.name);
-    } else if (target_url == '/books') {
+    } else if (target_url == 'books') {
         text = document.createTextNode(author.title);
-    } else if (target_url == '/users') {
+    } else if (target_url == 'users') {
         text = document.createTextNode(author.name);
-    } else if (target_url == '/loans') {
+    } else if (target_url == 'loans') {
         text = document.createTextNode(author.dueDate);
     }
 
@@ -78,7 +80,20 @@ function initListItemTextDiv(target_url, list_item_text_div, author) {
     list_item_text_div.appendChild(p);
 }
 
-updateList(first_path);
+updateList( first_path);
+
+document.querySelector('#search_button').addEventListener('click', function () {
+    let search_text = document.querySelector('#search_text');
+    let value = search_text.value;
+
+    // set up and make a GET request to the Authors endpoint
+    let xhttp = new XMLHttpRequest();
+    let query_url = base_url + '/search?type='+first_path+'&'+'';
+    xhttp.open('GET', query_url);
+
+    loadData(xhttp, target_url);
+});
+
 
 
 
