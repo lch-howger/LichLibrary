@@ -6,67 +6,22 @@
     <style>
         div {
             border: 1px solid black;
-            width: 100px;
-            height: 100px;
-            display: inline-block;
+        }
+
+        #search_button {
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
 
-<a href="http://baidu.com">
-    <div></div>
-</a>
+<div>
+    <input type="text" id="search_text">
+    <input type="button" id="search_button" value="搜索" >
+</div>
 
-<script>
-    const base_url = "http://127.0.0.1:3000";
-
-    // a function that gets the list of authors and adds them to the list
-    function updateAuthorList() {
-
-        let xhttp = new XMLHttpRequest();
-        let authors_url = "/authors";
-        let query_url = base_url + authors_url;
-        xhttp.open('GET', query_url);
-        xhttp.addEventListener('load', function(){
-            let author_list= document.querySelector('#authors_list');
-            author_list.innerHTML = "";
-            let authors = JSON.parse(this.response);
-            authors.forEach(function(author){
-                let text = document.createTextNode(author.name);
-            })
-        });
-        xhttp.send();
-    }
-
-    // when the user clicks the button, make a PUT request to update Author 1
-    document.querySelector('#change').addEventListener('click', function(){
-
-        let author_1_url = base_url + "/authors/1"
-
-        let xhttp = new XMLHttpRequest();
-
-        xhttp.open("PUT", author_1_url);
-        // remember to set the content type header
-        xhttp.setRequestHeader('Content-Type', 'application/json')
-
-        let params = {
-            name: "Testy Test"
-        };
-
-        // when the PUT request is finished, clear and update the author list
-        xhttp.addEventListener('load', function(){
-            updateAuthorList();
-        });
-
-        xhttp.send(JSON.stringify(params));
-
-    });
-
-    updateAuthorList();
-
-
-</script>
+<script src="../views/js/public.js"></script>
+<script src="../views/js/index.js"></script>
 
 </body>
 </html>

@@ -1,5 +1,4 @@
 const base_url = "http://127.0.0.1:3000";
-let url_pathname = window.location.pathname.split('/');
 let first_path = '/' + url_pathname[1];
 
 function updateList(target_url) {
@@ -58,13 +57,6 @@ function updateList(target_url) {
 }
 
 function initListItemA(target_url, list_item_a, author) {
-    if (target_url == '/authors') {
-
-    } else if (target_url == '/books') {
-    } else if (target_url == '/users') {
-    } else if (target_url == '/loans') {
-    }
-
     list_item_a.setAttribute('href', base_url + target_url + '/' + author.id);
 }
 
