@@ -1,5 +1,4 @@
 const base_url = "http://127.0.0.1:3000";
-
 let url_pathname = window.location.pathname;
 
 function updateList(target_url) {
@@ -27,10 +26,15 @@ function updateList(target_url) {
             list_item.setAttribute('class', 'list_item');
             author_list.appendChild(list_item);
 
+            //a
+            let list_item_a = document.createElement('a');
+            initListItemA(target_url, list_item_a, author);
+            list_item.appendChild(list_item_a);
+
             //div
             let list_item_div = document.createElement('div');
             list_item_div.setAttribute('class', 'list_item_div');
-            list_item.appendChild(list_item_div);
+            list_item_a.appendChild(list_item_div);
 
             //img
             let img = document.createElement('img');
@@ -46,11 +50,21 @@ function updateList(target_url) {
             //p
             initListItemTextDiv(target_url, list_item_text_div, author);
 
-
         })
     });
 
     xhttp.send();
+}
+
+function initListItemA(target_url, list_item_a, author) {
+    if (target_url == '/authors') {
+
+    } else if (target_url == '/books') {
+    } else if (target_url == '/users') {
+    } else if (target_url == '/loans') {
+    }
+
+    list_item_a.setAttribute('href', base_url + target_url + '/' + author.id);
 }
 
 function initListItemTextDiv(target_url, list_item_text_div, author) {
@@ -73,21 +87,6 @@ function initListItemTextDiv(target_url, list_item_text_div, author) {
 
 updateList(url_pathname);
 
-// document.querySelector('#authors').addEventListener('click', function () {
-//     updateList('/authors');
-// });
-//
-// document.querySelector('#books').addEventListener('click', function () {
-//     updateList('/books');
-// });
-//
-// document.querySelector('#users').addEventListener('click', function () {
-//     updateList('/users');
-// });
-//
-// document.querySelector('#loans').addEventListener('click', function () {
-//     updateList('/loans');
-// });
 
 
 
