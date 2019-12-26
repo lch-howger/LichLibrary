@@ -4,7 +4,11 @@ const router = express.Router();
 const db = require("../data");
 const ret = require("../lib/return");
 
-router.get("/", function(req, res) {
+router.get("/", function (req, res) {
+    res.sendfile("./dist/authors.html");
+});
+
+router.get("/list", function(req, res) {
     if (req.query.allEntities == "true") {
         db.Author.findAll({ include: [db.Book] }).then(function(authors) {
             ret.json(authors, res);

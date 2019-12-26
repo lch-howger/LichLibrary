@@ -4,7 +4,11 @@ const router = express.Router();
 const db = require("../data");
 const ret = require("../lib/return");
 
-router.get("/", function(req, res) {
+router.get("/", function (req, res) {
+    res.sendfile("./dist/users.html");
+});
+
+router.get("/list", function(req, res) {
     db.User.findAll().then(function(users) {
         ret.json(users, res);
     });

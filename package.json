@@ -19,5 +19,8 @@
         "sequelize": "^4.44.3",
         "sqlite3": "^4.0.7"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-file-include": "^2.1.1"
+    }
 }
