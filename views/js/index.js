@@ -83,13 +83,12 @@ function initListItemTextDiv(target_url, list_item_text_div, author) {
 updateList(first_path);
 
 document.querySelector('#search_button').addEventListener('click', function () {
-    let search_text = document.querySelector('#search_text');
-    let search_value = search_text.value;
+    let search_value = document.querySelector('#search_text').value;
 
     let search_type = '';
     let allSearchTypes = document.querySelectorAll('.search_type');
     allSearchTypes.forEach(function (type) {
-        if (type.getAttribute('checked') == 'checked') {
+        if (type.checked) {
             search_type = type.value;
         }
     });
