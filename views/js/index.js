@@ -5,7 +5,7 @@ function updateList(target_url) {
 
     // set up and make a GET request to the Authors endpoint
     let xhttp = new XMLHttpRequest();
-    let query_url = base_url +'/'+ target_url + '/list';
+    let query_url = base_url + '/' + target_url + '/list';
     xhttp.open('GET', query_url);
 
     loadData(xhttp, target_url);
@@ -33,7 +33,7 @@ function loadData(xhttp, target_url) {
 
             //a
             let list_item_a = document.createElement('a');
-            list_item_a.setAttribute('href', base_url +'/'+ target_url + '/' + author.id);
+            list_item_a.setAttribute('href', base_url + '/' + target_url + '/' + author.id);
             list_item.appendChild(list_item_a);
 
             //div
@@ -80,18 +80,34 @@ function initListItemTextDiv(target_url, list_item_text_div, author) {
     list_item_text_div.appendChild(p);
 }
 
-updateList( first_path);
+updateList(first_path);
 
 document.querySelector('#search_button').addEventListener('click', function () {
     let search_text = document.querySelector('#search_text');
-    let value = search_text.value;
+    let search_value = search_text.value;
+
+    let search_type = '';
+    let allSearchTypes = document.querySelectorAll('.search_type');
+    allSearchTypes.forEach(function (type) {
+        if (type.getAttribute('checked') == 'checked') {
+            search_type = type.value;
+        }
+    });
+
+    let type_value = '';
+    if (first_path == 'authors') {
+        type_value = 'author';
+    } else if (first_path == 'books') {
+        type_value = 'book';
+    } else if (first_path == 'users') {
+        type_value = 'user';
+    }
 
     // set up and make a GET request to the Authors endpoint
     let xhttp = new XMLHttpRequest();
-    let query_url = base_url + '/search?type='+first_path+'&'+'';
+    let query_url = base_url + '/search?type=' + type_value + '&' + search_type + '=' + search_value;
     xhttp.open('GET', query_url);
-
-    loadData(xhttp, target_url);
+    loadData(xhttp, first_path);
 });
 
 
