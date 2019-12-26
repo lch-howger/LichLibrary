@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1ebce43-3953-461f-970e-567eddd32b27" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dist/authors.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/books.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/include/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/include/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/include/title.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/users.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/error.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/authors.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/authors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/books.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/books.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/loans.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/loans.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/authors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/include/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/include/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +16,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -62,12 +46,12 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\D\Project\LichLibrary\views\include" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\D\Project\LichLibrary\views" />
       <recent name="C:\D\Project\LichLibrary\routes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\D\Project\LichLibrary\views\include" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -99,7 +83,7 @@
       <workItem from="1577127081486" duration="9000" />
       <workItem from="1577127969723" duration="3938000" />
       <workItem from="1577186392625" duration="25203000" />
-      <workItem from="1577358187118" duration="526000" />
+      <workItem from="1577358187118" duration="1330000" />
     </task>
     <servers />
   </component>

@@ -11,6 +11,7 @@ let usersRouter = require("./routes/users");
 let loansRouter = require("./routes/loans");
 let searchRouter = require("./routes/search");
 let indexRouter = require("./routes/index");
+let errorRouter = require("./routes/error");
 
 let server = express();
 
@@ -32,8 +33,8 @@ server.use("/books", booksRouter);
 server.use("/users", usersRouter);
 server.use("/loans", loansRouter);
 server.use("/search", searchRouter);
-server.use("/index", indexRouter);
 server.use("/", indexRouter);
+server.use("*", errorRouter);
 
 // set static views
 server.use('/views', express.static('views'));
