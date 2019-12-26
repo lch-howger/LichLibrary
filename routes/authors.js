@@ -30,13 +30,14 @@ router.get("/:authorID", function(req, res) {
             }
         });
     } else {
-        db.Author.findByPk(req.params.authorID).then(function(author) {
-            if (author) {
-                ret.json(author, res);
-            } else {
-                res.end();
-            }
-        });
+        res.sendfile("./dist/detail.html");
+        // db.Author.findByPk(req.params.authorID).then(function(author) {
+        //     if (author) {
+        //         ret.json(author, res);
+        //     } else {
+        //         res.end();
+        //     }
+        // });
     }
 });
 

@@ -1,5 +1,6 @@
 const base_url = "http://127.0.0.1:3000";
-let url_pathname = window.location.pathname;
+let url_pathname = window.location.pathname.split('/');
+let first_path = '/' + url_pathname[1];
 
 function updateList(target_url) {
 
@@ -85,7 +86,7 @@ function initListItemTextDiv(target_url, list_item_text_div, author) {
     list_item_text_div.appendChild(p);
 }
 
-updateList(url_pathname);
+updateList(first_path);
 
 
 
