@@ -1,7 +1,3 @@
-function changeOK() {
-    // alert('a');
-    // alert(first_path);
-    alert('a');
+if (url_pathname.length == 4 && url_pathname[3]=='change') {
+    document.querySelector('#add_submit').setAttribute('value', 'Change');
 }
-
-changeOK();

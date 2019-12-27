@@ -24,11 +24,7 @@ function initInputText() {
 initInputText()
 
 document.querySelector('#add_submit').addEventListener('click', function () {
-    let query_url = base_url + "/" + first_path;
     let xhttp = new XMLHttpRequest();
-    xhttp.open("POST", query_url);
-    xhttp.setRequestHeader('Content-Type', 'application/json');
-
     let params = {};
     if (first_path == 'authors') {
         let value = document.querySelector('#add_input01').value;
@@ -53,12 +49,25 @@ document.querySelector('#add_submit').addEventListener('click', function () {
         };
     }
 
+    if (url_pathname.length == 4 && url_pathname[3] == 'change') {
+        let query_url = base_url + '/' + url_pathname[1] + '/' + url_pathname[2];
+        xhttp.open("PUT", query_url);
 
-    xhttp.addEventListener('load', function () {
-        alert('ok');
-        window.location.href = base_url + '/' + first_path;
-    });
+        xhttp.addEventListener('load', function () {
+            alert('ok');
+            window.location.href = base_url + '/' + first_path;
+        });
+    } else {
+        let query_url = base_url + "/" + first_path;
+        xhttp.open("POST", query_url);
 
+        xhttp.addEventListener('load', function () {
+            alert('ok');
+            window.location.href = base_url + '/' + first_path;
+        });
+    }
+
+    xhttp.setRequestHeader('Content-Type', 'application/json');
     xhttp.send(JSON.stringify(params));
 })
 
