@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1ebce43-3953-461f-970e-567eddd32b27" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/include/footer_change.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/js/change.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/js/delete.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/authors.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/authors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/books.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/books.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/js/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/js/add.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/js/detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/js/detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/js/public.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/js/public.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/include/footer_change.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -93,7 +87,7 @@
       <workItem from="1577186392625" duration="25203000" />
       <workItem from="1577358187118" duration="4115000" />
       <workItem from="1577379545634" duration="20190000" />
-      <workItem from="1577455707584" duration="10868000" />
+      <workItem from="1577455707584" duration="15003000" />
     </task>
     <servers />
   </component>
@@ -125,10 +119,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1577197606156" />
-    <state x="457" y="167" width="755" height="548" key="find.popup" timestamp="1577466673865">
+    <state x="457" y="167" width="755" height="548" key="find.popup" timestamp="1577473533916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="457" y="167" width="755" height="548" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1577466673865" />
+    <state x="457" y="167" width="755" height="548" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1577473533916" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1577463444001">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
