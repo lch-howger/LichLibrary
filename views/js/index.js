@@ -1,5 +1,3 @@
-const base_url = "http://127.0.0.1:3000";
-let first_path = url_pathname[1];
 
 function updateList(target_url) {
 
@@ -109,6 +107,9 @@ document.querySelector('#search_button').addEventListener('click', function () {
     loadData(xhttp, first_path);
 });
 
+document.querySelector('#add_button').addEventListener('click', function () {
+    window.location.href = base_url + '/' + first_path + '/add';
+})
 
 
 

@@ -1,22 +1,23 @@
+const base_url = "http://127.0.0.1:3000";
 let pathname = window.location.pathname;
 let url_pathname = pathname.split('/');
+let first_path = url_pathname[1];
 
 function initPageTitle() {
-    let first_path = url_pathname[1];
+    let text = '';
 
     if (first_path == '') {
-        first_path = 'Home';
+        text = 'Home';
     } else if (first_path == 'authors') {
-        first_path = 'Authors';
+        text = 'Authors';
     } else if (first_path == 'books') {
-        first_path = 'Books';
+        text = 'Books';
     } else if (first_path == 'users') {
-        first_path = 'Users';
+        text = 'Users';
     } else if (first_path == 'loans') {
-        first_path = 'Loans';
+        text = 'Loans';
     }
-    let title = document.createTextNode(first_path);
-
+    let title = document.createTextNode(text);
     let page_title = document.querySelector('#page_title');
     page_title.appendChild(title);
 }

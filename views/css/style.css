@@ -7,7 +7,7 @@
     background-color: lavender;
 }
 
-.list_item_div{
+.list_item_div {
     height: 120px;
 }
 
@@ -23,5 +23,6 @@
 }
 
 #search_button {
-margin-top: 5px;
+    margin-top: 5px;
 }
+

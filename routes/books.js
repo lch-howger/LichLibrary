@@ -20,6 +20,10 @@ router.get("/list", function(req, res) {
     }
 });
 
+router.get("/add", function (req, res) {
+    res.sendfile("./dist/add.html");
+});
+
 router.get("/:bookID", function(req, res) {
     if (req.query.allEntities == "true") {
         db.Book.findByPk(req.params.bookID, { include: [db.Author] }).then(function(book) {

@@ -14,6 +14,10 @@ router.get("/list", function(req, res) {
     });
 });
 
+router.get("/add", function (req, res) {
+    res.sendfile("./dist/add.html");
+});
+
 router.get("/:userID", function(req, res) {
     if (req.query.allEntities == "true") {
         db.User.findByPk(req.params.userID).then(function (user) {
