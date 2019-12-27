@@ -8,13 +8,13 @@ router.get("/", function (req, res) {
     res.sendfile("./dist/authors.html");
 });
 
-router.get("/list", function(req, res) {
+router.get("/list", function (req, res) {
     if (req.query.allEntities == "true") {
-        db.Author.findAll({ include: [db.Book] }).then(function(authors) {
+        db.Author.findAll({include: [db.Book]}).then(function (authors) {
             ret.json(authors, res);
         });
     } else {
-        db.Author.findAll().then(function(authors) {
+        db.Author.findAll().then(function (authors) {
             ret.json(authors, res);
         });
     }
@@ -24,9 +24,9 @@ router.get("/add", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
-router.get("/:authorID", function(req, res) {
+router.get("/:authorID", function (req, res) {
     if (req.query.allEntities == "true") {
-        db.Author.findByPk(req.params.authorID, { include: [db.Book] }).then(function(author) {
+        db.Author.findByPk(req.params.authorID, {include: [db.Book]}).then(function (author) {
             if (author) {
                 ret.json(author, res);
             } else {
@@ -45,20 +45,24 @@ router.get("/:authorID", function(req, res) {
     }
 });
 
-router.post("/", function(req, res) {
-    db.Author.create({ name: req.body.name }).then(function(author) {
+router.get("/:authorID/change", function (req, res) {
+    res.sendfile("./dist/add.html");
+});
+
+router.post("/", function (req, res) {
+    db.Author.create({name: req.body.name}).then(function (author) {
         ret.json(author, res);
     });
 });
 
-router.post("/:authorID/books", function(req, res) {
-    db.Author.findByPk(req.params.authorID, { include: [db.Book] }).then(function(author) {
+router.post("/:authorID/books", function (req, res) {
+    db.Author.findByPk(req.params.authorID, {include: [db.Book]}).then(function (author) {
         if (author) {
             db.Book.findOrCreate({
-                where: { title: req.body.bookTitle, isbn: req.body.bookISBN }
-            }).spread(function(book, created) {
+                where: {title: req.body.bookTitle, isbn: req.body.bookISBN}
+            }).spread(function (book, created) {
                 author.addBook(book);
-                author.reload().then(function(author) {
+                author.reload().then(function (author) {
                     ret.json(author, res);
                 });
             });
@@ -68,13 +72,13 @@ router.post("/:authorID/books", function(req, res) {
     });
 });
 
-router.post("/:authorID/books/:bookID", function(req, res) {
-    db.Author.findByPk(req.params.authorID, { include: [db.Book] }).then(function(author) {
+router.post("/:authorID/books/:bookID", function (req, res) {
+    db.Author.findByPk(req.params.authorID, {include: [db.Book]}).then(function (author) {
         if (author) {
-            db.Book.findByPk(req.params.bookID).then(function(book) {
+            db.Book.findByPk(req.params.bookID).then(function (book) {
                 if (book) {
                     author.addBook(book);
-                    author.reload().then(function(author) {
+                    author.reload().then(function (author) {
                         ret.json(author, res);
                     });
                 }
@@ -85,11 +89,11 @@ router.post("/:authorID/books/:bookID", function(req, res) {
     });
 });
 
-router.put("/:authorID", function(req, res) {
-    db.Author.findByPk(req.params.authorID).then(function(author) {
+router.put("/:authorID", function (req, res) {
+    db.Author.findByPk(req.params.authorID).then(function (author) {
         if (author) {
             author.name = req.body.name;
-            author.save().then(function(author) {
+            author.save().then(function (author) {
                 ret.json(author, res);
             });
         } else {
@@ -98,16 +102,16 @@ router.put("/:authorID", function(req, res) {
     });
 });
 
-router.delete("/:authorID", function(req, res) {
+router.delete("/:authorID", function (req, res) {
     db.Author.findByPk(req.params.authorID)
-        .then(function(author) {
+        .then(function (author) {
             if (author) {
                 return author.destroy();
             } else {
                 res.end();
             }
         })
-        .then(function() {
+        .then(function () {
             res.end();
         });
 });

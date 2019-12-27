@@ -20,7 +20,7 @@ function updateDetail() {
 updateDetail();
 
 function detailChange() {
-    alert('change');
+    window.location.href = href + '/change';
 }
 
 function detailDelete() {
