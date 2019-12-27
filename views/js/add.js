@@ -51,7 +51,7 @@ document.querySelector('#add_submit').addEventListener('click', function () {
         params = {
             name: value01,
             barcode: value02,
-            membertype: value03,
+            memberType: value03,
         };
     }
 
