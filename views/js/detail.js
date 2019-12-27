@@ -18,3 +18,15 @@ function updateDetail() {
 }
 
 updateDetail();
+
+function detailChange() {
+    alert('change');
+}
+
+function detailDelete() {
+    alert('delete');
+}
+
+function detailAdd() {
+    alert('add');
+}
