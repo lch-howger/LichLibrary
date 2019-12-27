@@ -1,27 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Test</title>
-    <style>
-        div {
-            border: 1px solid black;
+    <script type="text/javascript">
+        function disp_confirm()
+        {
+            var r=confirm("Press a button")
+            if (r==true)
+            {
+                document.write("You pressed OK!")
+            }
+            else
+            {
+                document.write("You pressed Cancel!")
+            }
         }
-
-        #search_button {
-            margin-top: 5px;
-        }
-    </style>
+    </script>
 </head>
 <body>
 
-<div>
-    <input type="text" id="search_text">
-    <input type="button" id="search_button" value="搜索" >
-</div>
-
-<script src="../views/js/public.js"></script>
-<script src="../views/js/index.js"></script>
+<input type="button" onclick="disp_confirm()"
+       value="Display a confirm box" />
 
 </body>
 </html>

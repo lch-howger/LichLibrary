@@ -8,8 +8,11 @@ function updateDetail() {
         let div_content = document.querySelector('#div_content');
         div_content.innerHTML = "";
 
-        let text = document.createTextNode(this.response);
-        div_content.appendChild(text);
+        let result = JSON.stringify(JSON.parse(this.response), null, 4);
+
+        div_content.innerText = result;
+        // let text = document.createTextNode(result);
+        // div_content.appendChild(text);
     });
     xhttp.send();
 }
