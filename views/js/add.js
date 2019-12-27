@@ -29,9 +29,7 @@ document.querySelector('#add_submit').addEventListener('click', function () {
     xhttp.open("POST", query_url);
     xhttp.setRequestHeader('Content-Type', 'application/json');
 
-
     let params = {};
-
     if (first_path == 'authors') {
         let value = document.querySelector('#add_input01').value;
         params = {
@@ -58,6 +56,7 @@ document.querySelector('#add_submit').addEventListener('click', function () {
 
     xhttp.addEventListener('load', function () {
         alert('ok');
+        window.location.href = base_url + '/' + first_path;
     });
 
     xhttp.send(JSON.stringify(params));

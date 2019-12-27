@@ -1,4 +1,3 @@
-
 function updateList(target_url) {
 
     // set up and make a GET request to the Authors endpoint
@@ -62,20 +61,30 @@ function loadData(xhttp, target_url) {
 
 function initListItemTextDiv(target_url, list_item_text_div, author) {
     let text = document.createTextNode('Null');
+    let div = document.createElement('div');
+    div.setAttribute('class', 'list_item_text');
+
     if (target_url == 'authors') {
-        text = document.createTextNode(author.name);
+        div.appendChild(document.createTextNode('Name: ' + author.name));
+        div.appendChild(document.createElement('br'));
     } else if (target_url == 'books') {
-        text = document.createTextNode(author.title);
+        div.appendChild(document.createTextNode('Title: ' + author.title));
+        div.appendChild(document.createElement('br'));
+        div.appendChild(document.createTextNode('Isbn: ' + author.isbn));
+        div.appendChild(document.createElement('br'));
     } else if (target_url == 'users') {
-        text = document.createTextNode(author.name);
+        div.appendChild(document.createTextNode('Name: ' + author.name));
+        div.appendChild(document.createElement('br'));
+        div.appendChild(document.createTextNode('Barcode: ' + author.barcode));
+        div.appendChild(document.createElement('br'));
+        div.appendChild(document.createTextNode('Member Type: ' + author.memberType));
+        div.appendChild(document.createElement('br'));
     } else if (target_url == 'loans') {
-        text = document.createTextNode(author.dueDate);
+        div.appendChild(document.createTextNode('DueDate: ' + author.dueDate));
+        div.appendChild(document.createElement('br'));
     }
 
-    let p = document.createElement('p');
-    p.setAttribute('class', 'list_item_text');
-    p.appendChild(text);
-    list_item_text_div.appendChild(p);
+    list_item_text_div.appendChild(div);
 }
 
 updateList(first_path);
