@@ -157,10 +157,13 @@ header {
     float: left;
     margin: 10px;
     background: black;
+    margin-right: 1.5rem;
 }
 
 .list_item_text_div {
     float: left;
+    line-height: 2.3rem;
+    color: #2277AA;
 }
 
 .display_none {
