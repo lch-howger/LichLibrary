@@ -35,7 +35,7 @@ function initViews(response) {
         addText(div_content, 'Book List', '');
 
         let div_container = document.createElement('div');
-        div_container.setAttribute('id','div_detail_list')
+        div_container.setAttribute('id', 'div_detail_list')
         result.Books.forEach(function (book) {
             addItem(div_container, book.title);
         });
@@ -49,6 +49,13 @@ function initViews(response) {
         addText(div_content, 'Update Date', result.updatedAt);
         div_content.appendChild(document.createElement('br'));
         addText(div_content, 'Author List', '');
+
+        let div_container = document.createElement('div');
+        div_container.setAttribute('id', 'div_detail_list')
+        result.Authors.forEach(function (author) {
+            addItem(div_container, author.name);
+        });
+        div_content.appendChild(div_container);
     } else if (first_path == 'users') {
         addText(div_content, 'Id', result.id);
         addText(div_content, 'Name', result.name);
@@ -74,7 +81,14 @@ function addItem(container, text) {
     img.setAttribute('src', '//127.0.0.1:3000/views/image/img06.jpg');
     img.setAttribute('class', 'img_detail_list');
     div.appendChild(img);
-    div.appendChild(document.createTextNode(text));
+    if (first_path == 'users') {
+        let split = text.split('/#/');
+        div.appendChild(document.createTextNode('Book Id : ' + split[0]));
+        div.appendChild(document.createElement('br'));
+        div.appendChild(document.createTextNode('Due Date : ' + split[1]));
+    } else {
+        div.appendChild(document.createTextNode(text));
+    }
 
     container.appendChild(div);
 }
@@ -123,9 +137,16 @@ function initUserLoans() {
     let query_url = href + '/loans/list';
     axios.get(query_url)
         .then(function (response) {
-            let div_user_loans = document.querySelector('#div_user_loans');
-            div_user_loans.innerHTML = '';
-            let result = JSON.stringify(response.data, null, 4);
-            div_user_loans.innerText = result;
+            // let div_user_loans = document.querySelector('#div_user_loans');
+            // div_user_loans.innerHTML = '';
+            // let result = JSON.stringify(response.data, null, 4);
+            // div_user_loans.innerText = result;
+
+            let div_container = document.createElement('div');
+            div_container.setAttribute('id', 'div_detail_list')
+            response.data.forEach(function (loan) {
+                addItem(div_container, loan.BookId + '/#/' + loan.dueDate);
+            });
+            div_content.appendChild(div_container);
         });
 }
