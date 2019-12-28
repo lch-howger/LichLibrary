@@ -24,7 +24,13 @@ function detailChange() {
 }
 
 function detailDelete() {
-    alert('delete');
+    let dialog = confirm("Delete?");
+    if (dialog == true) {
+        axios.delete(href)
+            .then(function (response) {
+                window.location.href = base_url + '/' + first_path;
+            });
+    }
 }
 
 function detailAdd() {
