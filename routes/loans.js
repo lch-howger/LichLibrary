@@ -28,6 +28,10 @@ router.get("/:loanID", function(req, res) {
     }
 });
 
+router.get("/:loanID/change", function (req, res) {
+    res.sendfile("./dist/add.html");
+});
+
 router.put("/:loanID", function(req, res) {
     db.Loan.findByPk(req.params.loanID).then(function(loan) {
         if (loan) {

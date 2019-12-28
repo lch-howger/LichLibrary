@@ -46,7 +46,7 @@ function initAdditionButton() {
     }else if (first_path == 'books') {
         button.setAttribute('value','Add Author For Book');
     }else if (first_path == 'users') {
-        button.setAttribute('value','Add Loan For User')
+        button.setAttribute('value','Edit Loans')
     }else if (first_path == 'loans') {
         button.setAttribute('class', 'display_none');
     }

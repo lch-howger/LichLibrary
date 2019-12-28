@@ -18,6 +18,8 @@ function initInputText() {
         createTextAndInput(add_div, 'Name', '01');
         createTextAndInput(add_div, 'Barcode', '02');
         createTextAndInput(add_div, 'Member Type', '03');
+    }else if (first_path == 'loans') {
+        createTextAndInput(add_div, 'DueDate', '01');
     }
 }
 
@@ -46,6 +48,11 @@ document.querySelector('#add_submit').addEventListener('click', function () {
             name: value01,
             barcode: value02,
             memberType: value03,
+        };
+    }else if (first_path == 'loans') {
+        let value = document.querySelector('#add_input01').value;
+        params = {
+            dueDate: value
         };
     }
 
