@@ -42,6 +42,10 @@ router.get("/:userID/loans", function(req, res) {
     });
 });
 
+router.get("/:userID/edit", function (req, res) {
+    res.sendfile("./dist/add.html");
+});
+
 router.post("/:userID/loans/:bookID", function(req, res) {
     db.User.findByPk(req.params.userID).then(function(user) {
         if (user) {

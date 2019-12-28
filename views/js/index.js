@@ -16,7 +16,7 @@ function loadData(xhttp, target_url) {
 
         let author_list = document.querySelector('#authors_list');
         // clear the list of existing data
-        author_list.innerHTML = "";
+        author_list.innerHTML = '';
 
         let authors = JSON.parse(this.response);
         // loop through all authors
