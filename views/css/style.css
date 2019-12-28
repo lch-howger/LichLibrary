@@ -222,5 +222,17 @@ header {
 #div_detail {
     width: 70rem;
     margin: 0px auto;
+    margin-top: 1rem;
+}
+
+#div_content{
+    margin: 1.5rem;
+    line-height: 2rem;
+}
+
+#img_detail {
+    width: 8rem;
+    height: 10rem;
+    display: block;
 }
 

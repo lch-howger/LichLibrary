@@ -3,12 +3,10 @@ function updateDetail() {
     let query_url = href + '?allEntities=true';
     xhttp.open('GET', query_url);
     xhttp.addEventListener('load', function () {
-        let div_content = document.querySelector('#div_content');
-        div_content.innerHTML = '';
 
-        let result = JSON.stringify(JSON.parse(this.response), null, 4);
+        initViews(this.response);
 
-        div_content.innerText = result;
+
         // let text = document.createTextNode(result);
         // div_content.appendChild(text);
     });
@@ -16,6 +14,45 @@ function updateDetail() {
 }
 
 updateDetail();
+
+function initViews(response) {
+    let div_content = document.querySelector('#div_content');
+
+    let img = document.createElement('img');
+    img.setAttribute('src', '//127.0.0.1:3000/views/image/img06.jpg');
+    img.setAttribute('id', 'img_detail');
+    div_content.appendChild(img);
+
+    let result = JSON.parse(response);
+    div_content.appendChild(document.createElement('br'));
+
+    if (first_path == 'authors') {
+        addText(div_content, 'Id', result.id);
+        addText(div_content, 'Name', result.name);
+        addText(div_content, 'Create Date', result.createdAt);
+        addText(div_content, 'Update Date', result.updatedAt);
+    } else if (first_path == 'books') {
+        addText(div_content, 'Id', result.id);
+        addText(div_content, 'Title', result.title);
+        addText(div_content, 'Isbn', result.isbn);
+        addText(div_content, 'Create Date', result.createdAt);
+        addText(div_content, 'Update Date', result.updatedAt);
+    } else if (first_path == 'users') {
+        addText(div_content, 'Id', result.id);
+        addText(div_content, 'Name', result.name);
+        addText(div_content, 'Barcode', result.barcode);
+        addText(div_content, 'Member Type', result.memberType);
+        addText(div_content, 'Create Date', result.createdAt);
+        addText(div_content, 'Update Date', result.updatedAt);
+    }
+
+}
+
+function addText(div, key, text) {
+    let node = document.createTextNode(key + ' : ' + text);
+    div.appendChild(node);
+    div.appendChild(document.createElement('br'));
+}
 
 function detailChange() {
     window.location.href = href + '/change';
