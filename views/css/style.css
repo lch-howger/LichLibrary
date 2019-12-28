@@ -174,5 +174,53 @@ header {
     display: block;
 }
 
+#btn_detail_change {
+    width: 5rem;
+    height: 2rem;
+    background: #8C959E;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    color: #FCFCFC;
+    margin: 1rem;
+}
 
+#btn_detail_delete{
+    width: 5rem;
+    height: 2rem;
+    background: #8C959E;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    color: #FCFCFC;
+    margin: 1rem;
+}
+
+#btn_detail_addition{
+    width: 10rem;
+    height: 2rem;
+    background: #8C959E;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    color: #FCFCFC;
+    margin: 1rem;
+}
+
+#btn_detail_change:hover {
+    background: #525E68;
+}
+
+#btn_detail_delete:hover {
+    background: #525E68;
+}
+
+#btn_detail_addition:hover {
+    background: #525E68;
+}
+
+#div_detail {
+    width: 70rem;
+    margin: 0px auto;
+}
 

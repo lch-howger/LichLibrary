@@ -42,7 +42,7 @@ function detailAdd() {
 }
 
 function initAdditionButton() {
-    let button = document.querySelector('#addition_button');
+    let button = document.querySelector('#btn_detail_addition');
     if (first_path == 'authors') {
         button.setAttribute('value', 'Add Book For Author');
     } else if (first_path == 'books') {
