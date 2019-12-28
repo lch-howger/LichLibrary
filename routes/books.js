@@ -49,6 +49,10 @@ router.get("/:authorID/change", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
+router.get("/:authorID/authors", function (req, res) {
+    res.sendfile("./dist/books_addition.html");
+});
+
 router.post("/", function(req, res) {
     db.Book.create({ title: req.body.title, isbn: req.body.isbn }).then(function(book) {
         ret.json(book, res);

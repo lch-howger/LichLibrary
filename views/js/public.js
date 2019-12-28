@@ -1,4 +1,5 @@
 const base_url = "http://127.0.0.1:3000";
+let href = window.location.href;
 let pathname = window.location.pathname;
 let url_pathname = pathname.split('/');
 let first_path = url_pathname[1];

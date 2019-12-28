@@ -1,5 +1,3 @@
-let href = window.location.href;
-
 function updateDetail() {
     let xhttp = new XMLHttpRequest();
     let query_url = href + '?allEntities=true';
@@ -34,7 +32,11 @@ function detailDelete() {
 }
 
 function detailAdd() {
-    window.location.href = href + '/addition';
+    if (first_path == 'authors') {
+        window.location.href = href + '/books';
+    }else if (first_path == 'books') {
+        window.location.href = href + '/authors';
+    }
 }
 
 function initAdditionButton() {

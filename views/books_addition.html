@@ -10,20 +10,19 @@
 
 <label for="check_add_book">
     <input name="addbook" type="radio" id="check_add_book" checked="checked" onclick="showAddBook()">
-    <span>Add a Book</span>
+    <span>Add a Author</span>
 </label>
 <label for="check_add_new_book">
     <input name="addbook" type="radio" id="check_add_new_book" onclick="showAddNewBook()">
-    <span>Add a New Book</span>
+    <span>Add a New Author</span>
 </label>
 
 <div id="content_add_book" class="display_block">
-    Book Id<input type="text" id="input_book_id"><br>
+    Author Id<input type="text" id="input_book_id"><br>
     <input type="button" value="Add" onclick="addBook()">
 </div>
 <div id="content_add_new_book" class="display_none">
-    Book Title<input type="text" id="input_book_title"><br>
-    Book Isbn<input type="text" id="input_book_isbn"><br>
+    Author Name<input type="text" id="input_book_title"><br>
     <input type="button" value="Add" onclick="addNewBook()">
 </div>
 

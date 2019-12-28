@@ -49,7 +49,7 @@ router.get("/:authorID/change", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
-router.get("/:authorID/addition", function (req, res) {
+router.get("/:authorID/books", function (req, res) {
     res.sendfile("./dist/authors_addition.html");
 });
 
