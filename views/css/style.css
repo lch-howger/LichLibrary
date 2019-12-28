@@ -1,4 +1,55 @@
 
+#color {
+    color: #545652;
+    color: #F0F3F5;
+    color: #6D98D2;
+    color: #268DCD;
+    color: #2277AA;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#div_page_top {
+    background-color: #555555;
+    width: 100%;
+    height: 2rem;
+}
+
+#div_page_header {
+    background-color: #F0F3F5;
+}
+
+header {
+    width: 70rem;
+    height: 12rem;
+    margin: 0px auto;
+}
+
+#title_main{
+    color: #268DCD;
+    padding: 2rem;
+}
+
+.a_main{
+    margin: 1rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #2277AA;
+    font-weight: bold;
+}
+
+.a_main:hover{
+    color: #F0F3F5;
+    background-color: #2277AA;
+}
+
+#page_title{
+    margin: 2rem;
+}
+
 .list_item {
     border: 1px solid black;
 }
@@ -34,7 +85,5 @@
     display: block;
 }
 
-header{
-    border: 1px solid red;
-}
+
 
