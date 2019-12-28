@@ -65,6 +65,13 @@ function initViews(response) {
         addText(div_content, 'Update Date', result.updatedAt);
         div_content.appendChild(document.createElement('br'));
         addText(div_content, 'Loan List', '');
+    }else if (first_path == 'loans') {
+        addText(div_content, 'Id', result.id);
+        addText(div_content, 'Due Date', result.dueDate);
+        addText(div_content, 'Create Date', result.createdAt);
+        addText(div_content, 'Update Date', result.updatedAt);
+        addText(div_content, 'User Id', result.UserId);
+        addText(div_content, 'Book Id', result.BookId);
     }
 }
 
