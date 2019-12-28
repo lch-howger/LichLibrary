@@ -26,7 +26,11 @@
     margin-top: 5px;
 }
 
-.addition_button {
+.display_none {
     display: none;
+}
+
+.display_block {
+    display: block;
 }
 

@@ -46,7 +46,7 @@ function initAdditionButton() {
     }else if (first_path == 'users') {
         button.setAttribute('value','Add Loan For User')
     }else if (first_path == 'loans') {
-        button.setAttribute('class', 'addition_button');
+        button.setAttribute('class', 'display_none');
     }
 }
 

@@ -8,11 +8,27 @@
 
 @@include('include/header_public.html')
 
-<input type="button" value="Add a Book" onclick="detailChange()">
-<input type="button" value="Add a New Book" onclick="detailChange()">
+<label for="check_add_book">
+    <input name="addbook" type="radio" id="check_add_book" checked="checked" onclick="showAddBook()">
+    <span>Add a Book</span>
+</label>
+<label for="check_add_new_book">
+    <input name="addbook" type="radio" id="check_add_new_book" onclick="showAddNewBook()">
+    <span>Add a New Book</span>
+</label>
+
+<div id="content_add_book" class="display_block">
+    Book Id<input type="text" id="input_book_id"><br>
+    <input type="button" value="Add" onclick="addBook()">
+</div>
+<div id="content_add_new_book" class="display_none">
+    Book Title<input type="text" id="input_book_title"><br>
+    Book Isbn<input type="text" id="input_book_isbn"><br>
+    <input type="button" value="Add" onclick="addNewBook()">
+</div>
 
 @@include('include/footer_public.html')
-
+<script src="////127.0.0.1:3000/views/js/addition.js"></script>
 
 </body>
 </html>
