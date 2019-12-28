@@ -6,6 +6,7 @@
     color: #268DCD;
     color: #2277AA;
     color: #F2F7F6;
+    color: #8C959E;
 }
 
 * {
@@ -74,8 +75,9 @@ header {
     margin: 0px auto;
 }
 
-#search_test{
-    border: 1px solid red;
+#search_test {
+    width: 70rem;
+    height: 3rem;
 }
 
 #div_search_bar {
@@ -83,8 +85,8 @@ header {
     width: 25rem;
     height: 2.5rem;
     background-image: url('//127.0.0.1:3000/views/image/icon_search_bar.png');
-    display: inline-block;
-    border: 1px solid black;
+    float: left;
+    margin-top: 0.2rem;
 }
 
 #search_text {
@@ -98,12 +100,33 @@ header {
 }
 
 #search_button {
-    border: 1px solid blue;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding-top: 0.2rem;
-    display: inline-block;
+    width: 2.4rem;
+    height: 2.2rem;
+    float: left;
+    margin-top: 2rem;
+    border: none;
+    outline: none;
     background-image: url('//127.0.0.1:3000/views/image/icon_search.png');
+}
+
+#search_button:hover{
+    background-image: url('//127.0.0.1:3000/views/image/icon_search_dark.png');
+}
+
+#add_button {
+    width: 7rem;
+    height: 2rem;
+    margin-left: 1.7rem;
+    margin-top: 0.5rem;
+    background: #8C959E;
+    outline: none;
+    border: none;
+    border-radius:7px;
+    color: #FCFCFC;
+}
+
+#add_button:hover {
+    background: #525E68;
 }
 
 .list_item {

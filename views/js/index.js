@@ -2,10 +2,13 @@ function updateList(target_url) {
 
     if (first_path == 'authors') {
         document.querySelector('#search_text').setAttribute('placeholder', 'Search Authors');
+        document.querySelector('#add_button').setAttribute('value', '+ Add Author');
     } else if (first_path == 'books') {
         document.querySelector('#search_text').setAttribute('placeholder', 'Search Books');
+        document.querySelector('#add_button').setAttribute('value', '+ Add Book');
     } else if (first_path == 'users') {
         document.querySelector('#search_text').setAttribute('placeholder', 'Search Users');
+        document.querySelector('#add_button').setAttribute('value', '+ Add User');
     }
 
     // set up and make a GET request to the Authors endpoint
