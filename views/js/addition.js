@@ -11,7 +11,14 @@ function showAddNewBook() {
 function addBook() {
     let bookid = document.querySelector('#input_book_id').value;
     let query_url = href + '/' + bookid;
-    axios.post(query_url)
+    params = {};
+    if (first_path == 'users') {
+        let book_due_date = document.querySelector('#input_due_date').value;
+        params = {
+            dueDate: book_due_date,
+        };
+    }
+    axios.post(query_url, params)
         .then(function (response) {
             alert('ok');
             window.location.href = base_url + '/' + url_pathname[1] + '/' + url_pathname[2];

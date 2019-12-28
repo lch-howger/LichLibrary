@@ -36,14 +36,14 @@ router.get("/:authorID/change", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
-router.get("/:userID/loans", function(req, res) {
+router.get("/:userID/loans/list", function(req, res) {
     db.Loan.findAll({ where: { userId: req.params.userID } }).then(function(loans) {
         ret.json(loans, res);
     });
 });
 
-router.get("/:userID/edit", function (req, res) {
-    res.sendfile("./dist/add.html");
+router.get("/:userID/loans", function (req, res) {
+    res.sendfile("./dist/users_addition.html");
 });
 
 router.post("/:userID/loans/:bookID", function(req, res) {

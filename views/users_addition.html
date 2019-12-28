@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    @@include('include/title.html')
+</head>
+<body>
+
+@@include('include/header_public.html')
+
+<div id="content_add_book" class="display_block">
+    Book Id<input type="text" id="input_book_id"><br>
+    Due Date<input type="text" id="input_due_date"><br>
+    <input type="button" value="Add" onclick="addBook()">
+</div>
+
+@@include('include/footer_public.html')
+<script src="//127.0.0.1:3000/views/js/addition.js"></script>
+
+</body>
+</html>

@@ -37,7 +37,7 @@ function detailAdd() {
     } else if (first_path == 'books') {
         window.location.href = href + '/authors';
     } else if (first_path == 'users') {
-
+        window.location.href = href + '/loans';
     }
 }
 
@@ -48,7 +48,7 @@ function initAdditionButton() {
     } else if (first_path == 'books') {
         button.setAttribute('value', 'Add Author For Book');
     } else if (first_path == 'users') {
-        button.setAttribute('value', 'Edit Loans')
+        button.setAttribute('value', 'Add Loan For User')
         initUserLoans();
     } else if (first_path == 'loans') {
         button.setAttribute('class', 'display_none');
@@ -58,12 +58,12 @@ function initAdditionButton() {
 initAdditionButton();
 
 function initUserLoans() {
-    let query_url = href + '/loans';
+    let query_url = href + '/loans/list';
     axios.get(query_url)
         .then(function (response) {
             let div_user_loans = document.querySelector('#div_user_loans');
             div_user_loans.innerHTML = '';
-            let result = JSON.stringify(response.data[0], null, 4);
+            let result = JSON.stringify(response.data, null, 4);
             div_user_loans.innerText = result;
         });
 }
