@@ -103,13 +103,13 @@ header {
     width: 2.4rem;
     height: 2.2rem;
     float: left;
-    margin-top: 2rem;
+    margin-top: 0.3rem;
     border: none;
     outline: none;
     background-image: url('//127.0.0.1:3000/views/image/icon_search.png');
 }
 
-#search_button:hover{
+#search_button:hover {
     background-image: url('//127.0.0.1:3000/views/image/icon_search_dark.png');
 }
 
@@ -117,11 +117,11 @@ header {
     width: 7rem;
     height: 2rem;
     margin-left: 1.7rem;
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
     background: #8C959E;
     outline: none;
     border: none;
-    border-radius:7px;
+    border-radius: 7px;
     color: #FCFCFC;
 }
 
@@ -129,31 +129,38 @@ header {
     background: #525E68;
 }
 
+#div_list {
+    width: 70rem;
+    margin: 1rem auto;
+
+}
+
+#authors_list {
+    list-style: none;
+}
+
 .list_item {
-    border: 1px solid black;
+    padding: 1rem;
 }
 
 .list_item:hover {
-    background-color: lavender;
+    background-color: #F0F3F5;
 }
 
 .list_item_div {
-    height: 120px;
+    height: 13rem;
 }
 
 .list_item_img {
-    width: 100px;
-    height: 100px;
+    width: 8rem;
+    height: 10rem;
     float: left;
     margin: 10px;
+    background: black;
 }
 
 .list_item_text_div {
     float: left;
-}
-
-#search_button {
-    margin-top: 5px;
 }
 
 .display_none {
