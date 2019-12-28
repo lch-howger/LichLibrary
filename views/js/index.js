@@ -40,7 +40,7 @@ function loadData(xhttp, target_url) {
 
             //img
             let img = document.createElement('img');
-            img.setAttribute('src', '../views/image/more.png');
+            img.setAttribute('src', '../views/image/icon_more.png');
             img.setAttribute('class', 'list_item_img');
             list_item_div.appendChild(img);
 
