@@ -1,20 +1,14 @@
 <html>
 <head>
-    <script type="text/javascript">
-        function disp_confirm() {
-            var r = confirm("Press a button")
-            if (r == true) {
-                document.write("You pressed OK!")
-            } else {
-                document.write("You pressed Cancel!")
-            }
-        }
-    </script>
+
 </head>
 <body>
 
-<input type="button" onclick="disp_confirm()"
-       value="Display a confirm box"/>
+<select name="ok" id="ok">
+    <option value="abc">a01</option>
+    <option value="abca">a02</option>
+    <option value="abcb">a03</option>
+</select>
 
 </body>
 </html>

@@ -34,5 +34,20 @@ function detailDelete() {
 }
 
 function detailAdd() {
-    alert('add');
+    window.location.href = href + '/addition';
 }
+
+function initAdditionButton() {
+    let button = document.querySelector('#addition_button');
+    if (first_path == 'authors') {
+        button.setAttribute('value','Add Book For Author');
+    }else if (first_path == 'books') {
+        button.setAttribute('value','Add Author For Book');
+    }else if (first_path == 'users') {
+        button.setAttribute('value','Add Loan For User')
+    }else if (first_path == 'loans') {
+        button.setAttribute('class', 'addition_button');
+    }
+}
+
+initAdditionButton();

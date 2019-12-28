@@ -49,6 +49,10 @@ router.get("/:authorID/change", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
+router.get("/:authorID/addition", function (req, res) {
+    res.sendfile("./dist/authors_addition.html");
+});
+
 router.post("/", function (req, res) {
     db.Author.create({name: req.body.name}).then(function (author) {
         ret.json(author, res);
