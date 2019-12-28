@@ -39,6 +39,17 @@ header {
     padding: 2rem;
 }
 
+footer {
+    width: 70rem;
+    height: 8rem;
+    margin: 0px auto;
+}
+
+#footer_main {
+    color: #268DCD;
+    padding: 2rem;
+}
+
 .a_main {
     margin: 1.5rem;
     padding: 0.5rem;
