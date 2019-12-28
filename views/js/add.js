@@ -1,6 +1,7 @@
 function createTextAndInput(add_div, name, num) {
     let text = document.createTextNode(name);
     let input = document.createElement('input');
+    input.setAttribute('class', 'add_input');
     input.setAttribute('id', 'add_input' + num);
     add_div.appendChild(text);
     add_div.appendChild(input);

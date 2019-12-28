@@ -159,7 +159,7 @@ footer {
 }
 
 .list_item_div {
-    height: 13rem;
+    height: 11rem;
 }
 
 .list_item_img {
@@ -265,3 +265,28 @@ footer {
     margin: 0px auto;
 }
 
+#div_page_add {
+    width: 70rem;
+    margin: 0px auto;
+    min-height: 30rem;
+}
+
+#add_div{
+    padding: 2rem;
+}
+
+.add_input {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+#add_submit{
+    width: 5rem;
+    height: 2rem;
+    background: #8C959E;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    color: #FCFCFC;
+    margin-left: 2rem;
+}
