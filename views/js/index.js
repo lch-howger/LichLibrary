@@ -17,7 +17,6 @@ function updateList(target_url) {
     xhttp.open('GET', query_url);
 
     loadData(xhttp, target_url);
-
 }
 
 function loadData(xhttp, target_url) {

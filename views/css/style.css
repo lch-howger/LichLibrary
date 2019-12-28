@@ -130,9 +130,9 @@ header {
 }
 
 #div_list {
+    min-height: 50rem;
     width: 70rem;
     margin: 1rem auto;
-
 }
 
 #authors_list {
@@ -220,6 +220,7 @@ header {
 }
 
 #div_detail {
+    min-height: 70rem;
     width: 70rem;
     margin: 0px auto;
     margin-top: 1rem;
@@ -234,5 +235,22 @@ header {
     width: 8rem;
     height: 10rem;
     display: block;
+}
+
+#div_detail_list{
+    height: 15rem;
+}
+
+.div_detail_list_item {
+    float: left;
+    margin: 2rem;
+    text-align: center;
+}
+
+.img_detail_list {
+    width: 8rem;
+    height: 10rem;
+    display: block;
+    margin: 0px auto;
 }
 

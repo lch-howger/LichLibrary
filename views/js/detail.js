@@ -31,12 +31,24 @@ function initViews(response) {
         addText(div_content, 'Name', result.name);
         addText(div_content, 'Create Date', result.createdAt);
         addText(div_content, 'Update Date', result.updatedAt);
+        div_content.appendChild(document.createElement('br'));
+        addText(div_content, 'Book List', '');
+
+        let div_container = document.createElement('div');
+        div_container.setAttribute('id','div_detail_list')
+        result.Books.forEach(function (book) {
+            addItem(div_container, book.title);
+        });
+        div_content.appendChild(div_container);
+
     } else if (first_path == 'books') {
         addText(div_content, 'Id', result.id);
         addText(div_content, 'Title', result.title);
         addText(div_content, 'Isbn', result.isbn);
         addText(div_content, 'Create Date', result.createdAt);
         addText(div_content, 'Update Date', result.updatedAt);
+        div_content.appendChild(document.createElement('br'));
+        addText(div_content, 'Author List', '');
     } else if (first_path == 'users') {
         addText(div_content, 'Id', result.id);
         addText(div_content, 'Name', result.name);
@@ -44,14 +56,27 @@ function initViews(response) {
         addText(div_content, 'Member Type', result.memberType);
         addText(div_content, 'Create Date', result.createdAt);
         addText(div_content, 'Update Date', result.updatedAt);
+        div_content.appendChild(document.createElement('br'));
+        addText(div_content, 'Loan List', '');
     }
-
 }
 
 function addText(div, key, text) {
     let node = document.createTextNode(key + ' : ' + text);
     div.appendChild(node);
     div.appendChild(document.createElement('br'));
+}
+
+function addItem(container, text) {
+    let div = document.createElement('div');
+    div.setAttribute('class', 'div_detail_list_item');
+    let img = document.createElement('img');
+    img.setAttribute('src', '//127.0.0.1:3000/views/image/img06.jpg');
+    img.setAttribute('class', 'img_detail_list');
+    div.appendChild(img);
+    div.appendChild(document.createTextNode(text));
+
+    container.appendChild(div);
 }
 
 function detailChange() {
