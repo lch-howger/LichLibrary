@@ -8,23 +8,25 @@
 
 @@include('include/header_public.html')
 
-<label for="check_add_book">
-    <input name="addbook" type="radio" id="check_add_book" checked="checked" onclick="showAddBook()">
-    <span>Add a Book</span>
-</label>
-<label for="check_add_new_book">
-    <input name="addbook" type="radio" id="check_add_new_book" onclick="showAddNewBook()">
-    <span>Add a New Book</span>
-</label>
+<div class="div_addition">
+    <label for="check_add_book" class="label_addition">
+        <input name="addbook" type="radio" id="check_add_book" checked="checked" onclick="showAddBook()">
+        <span>Add a Book</span>
+    </label>
+    <label for="check_add_new_book" class="label_addition">
+        <input name="addbook" type="radio" id="check_add_new_book" onclick="showAddNewBook()">
+        <span>Add a New Book</span>
+    </label>
 
-<div id="content_add_book" class="display_block">
-    Book Id<input type="text" id="input_book_id"><br>
-    <input type="button" value="Add" onclick="addBook()">
-</div>
-<div id="content_add_new_book" class="display_none">
-    Book Title<input type="text" id="input_book_title"><br>
-    Book Isbn<input type="text" id="input_book_isbn"><br>
-    <input type="button" value="Add" onclick="addNewBook()">
+    <div id="content_add_book" class="display_block label_addition">
+        Book Id<input type="text" id="input_book_id" class="input_addition"><br>
+        <input type="button" value="Add" onclick="addBook()" class="button_addition">
+    </div>
+    <div id="content_add_new_book" class="display_none label_addition">
+        Book Title<input type="text" id="input_book_title" class="input_addition"><br>
+        Book Isbn<input type="text" id="input_book_isbn" class="input_addition"><br>
+        <input type="button" value="Add" onclick="addNewBook()" class="button_addition">
+    </div>
 </div>
 
 @@include('include/footer_public.html')
