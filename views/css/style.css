@@ -74,11 +74,17 @@ header {
     margin: 0px auto;
 }
 
+#search_test{
+    border: 1px solid red;
+}
+
 #div_search_bar {
+    margin-left: 1.5rem;
     width: 25rem;
     height: 2.5rem;
     background-image: url('//127.0.0.1:3000/views/image/icon_search_bar.png');
     display: inline-block;
+    border: 1px solid black;
 }
 
 #search_text {
@@ -86,10 +92,18 @@ header {
     height: 2rem;
     padding-left: 1rem;
     padding-top: 0.2rem;
-
     background: none;
     border: none;
     outline: none;
+}
+
+#search_button {
+    border: 1px solid blue;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding-top: 0.2rem;
+    display: inline-block;
+    background-image: url('//127.0.0.1:3000/views/image/icon_search.png');
 }
 
 .list_item {
