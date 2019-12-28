@@ -8,14 +8,16 @@
 
 @@include('include/header_public.html')
 
-<label for="check_title">
-    <input name="search" type="radio" id="check_title" checked="checked" class="search_type" value="title">
-    <span>Title</span>
-</label>
-<label for="check_isbn">
-    <input name="search" type="radio" id="check_isbn" class="search_type" value="isbn">
-    <span>Isbn</span>
-</label>
+<div id="div_search_radio">
+    <label for="check_title" class="label_radio">
+        <input name="search" type="radio" id="check_title" checked="checked" class="search_type" value="title">
+        <span>Title</span>
+    </label>
+    <label for="check_isbn" class="label_radio">
+        <input name="search" type="radio" id="check_isbn" class="search_type" value="isbn">
+        <span>Isbn</span>
+    </label>
+</div>
 
 @@include('include/header_search.html')
 

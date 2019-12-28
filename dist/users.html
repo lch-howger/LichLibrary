@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Library System</title>
+    <title>PontyBridge University Library System</title>
 <link href="//127.0.0.1:3000/views/css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -24,26 +24,33 @@
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<label for="check_name">
-    <input name="search" type="radio" id="check_name" checked="checked" class="search_type" value="name">
-    <span>Name</span>
-</label>
-<label for="check_barcode">
-    <input name="search" type="radio" id="check_barcode" class="search_type" value="barcode">
-    <span>Barcode</span>
-</label>
-<label for="check_membertype">
-    <input name="search" type="radio" id="check_membertype" class="search_type" value="membertype">
-    <span>Member Type</span>
-</label>
-
-<div>
-    <input type="text" id="search_text">
-    <input type="button" id="search_button" value="Search">
+<div id="div_search_radio">
+    <label for="check_name" class="label_radio">
+        <input name="search" type="radio" id="check_name" checked="checked" class="search_type" value="name">
+        <span>Name</span>
+    </label>
+    <label for="check_barcode" class="label_radio">
+        <input name="search" type="radio" id="check_barcode" class="search_type" value="barcode">
+        <span>Barcode</span>
+    </label>
+    <label for="check_membertype" class="label_radio">
+        <input name="search" type="radio" id="check_membertype" class="search_type" value="membertype">
+        <span>Member Type</span>
+    </label>
 </div>
 
-<input type="button" id="add_button" value="Add">
+<div id="div_search_add">
+    <div>
+        <div id="div_search_bar">
+            <input type="text" id="search_text" placeholder="ok">
+        </div>
+        <input type="button" id="search_button" value="Search">
+    </div>
 
+    <input type="button" id="add_button" value="Add">
+
+    <div id="div_test"></div>
+</div>
 
 <ul id="authors_list"></ul>
 

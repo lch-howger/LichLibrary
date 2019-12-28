@@ -1,5 +1,13 @@
 function updateList(target_url) {
 
+    if (first_path == 'authors') {
+        document.querySelector('#search_text').setAttribute('placeholder', 'Search Authors');
+    } else if (first_path == 'books') {
+        document.querySelector('#search_text').setAttribute('placeholder', 'Search Books');
+    } else if (first_path == 'users') {
+        document.querySelector('#search_text').setAttribute('placeholder', 'Search Users');
+    }
+
     // set up and make a GET request to the Authors endpoint
     let xhttp = new XMLHttpRequest();
     let query_url = base_url + '/' + target_url + '/list';
@@ -119,6 +127,8 @@ document.querySelector('#search_button').addEventListener('click', function () {
 document.querySelector('#add_button').addEventListener('click', function () {
     window.location.href = base_url + '/' + first_path + '/add';
 })
+
+
 
 
 
