@@ -220,7 +220,7 @@ footer {
     margin: 1rem;
 }
 
-#btn_detail_delete{
+#btn_detail_delete {
     width: 5rem;
     height: 2rem;
     background: #8C959E;
@@ -231,7 +231,7 @@ footer {
     margin: 1rem;
 }
 
-#btn_detail_addition{
+#btn_detail_addition {
     width: 10rem;
     height: 2rem;
     background: #8C959E;
@@ -261,7 +261,7 @@ footer {
     margin-top: 1rem;
 }
 
-#div_content{
+#div_content {
     margin: 1.5rem;
     line-height: 2rem;
 }
@@ -272,7 +272,7 @@ footer {
     display: block;
 }
 
-#div_detail_list{
+#div_detail_list {
     height: 15rem;
 }
 
@@ -295,7 +295,7 @@ footer {
     min-height: 30rem;
 }
 
-#add_div{
+#add_div {
     padding: 2rem;
 }
 
@@ -304,7 +304,7 @@ footer {
     margin-top: 1rem;
 }
 
-#add_submit{
+#add_submit {
     width: 5rem;
     height: 2rem;
     background: #8C959E;
@@ -315,6 +315,10 @@ footer {
     margin-left: 2rem;
 }
 
+#add_submit:hover {
+    background: #525E68;
+}
+
 .div_addition {
     width: 70rem;
     margin: 0px auto;
@@ -322,12 +326,12 @@ footer {
     min-height: 30rem;
 }
 
-.label_addition{
+.label_addition {
     padding: 2rem;
     padding-top: 1rem;
 }
 
-.input_addition{
+.input_addition {
     margin-left: 1rem;
     margin-top: 1rem;
 }
@@ -341,4 +345,8 @@ footer {
     border-radius: 7px;
     color: #FCFCFC;
     margin-top: 1rem;
+}
+
+.button_addition:hover {
+    background: #525E68;
 }
