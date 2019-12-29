@@ -9,6 +9,10 @@ function createTextAndInput(add_div, name, num) {
 }
 
 function initInputText() {
+    if (url_pathname.length == 4 && url_pathname[3]=='change') {
+        document.querySelector('#add_submit').setAttribute('value', 'Change');
+    }
+
     let add_div = document.querySelector('#add_div');
     if (first_path == 'authors') {
         createTextAndInput(add_div, 'Name', '01');
@@ -38,7 +42,7 @@ function initInputText() {
     }
 }
 
-initInputText()
+initInputText();
 
 document.querySelector('#add_submit').addEventListener('click', function () {
     let xhttp = new XMLHttpRequest();
