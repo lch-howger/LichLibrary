@@ -10,6 +10,19 @@ function showAddNewBook() {
 
 function addBook() {
     let bookid = document.querySelector('#input_book_id').value;
+    let query_url = base_url + '/check/bookId/' + bookid;
+    axios.get(query_url)
+        .then(function (response) {
+            if (response.data.check) {
+                addBookById();
+            } else {
+                alert('Sorry. Book Id : ' + bookid + ' does not exist.');
+            }
+        });
+}
+
+function addBookById() {
+    let bookid = document.querySelector('#input_book_id').value;
     let query_url = href + '/' + bookid;
     params = {};
     if (first_path == 'users') {
