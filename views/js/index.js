@@ -50,7 +50,15 @@ function loadData(xhttp, target_url) {
 
             //img
             let img = document.createElement('img');
-            img.setAttribute('src', '../views/image/img06.jpg');
+            if (first_path == 'authors') {
+                img.setAttribute('src', '../views/image/img06.jpg');
+            }else if (first_path == 'books') {
+                img.setAttribute('src', '../views/image/icon_book.jpg');
+            }else if (first_path == 'users') {
+                img.setAttribute('src', '../views/image/img04.jpg');
+            }else if (first_path == 'loans') {
+                img.setAttribute('src', '../views/image/icon_book.jpg');
+            }
             img.setAttribute('class', 'list_item_img');
             list_item_div.appendChild(img);
 

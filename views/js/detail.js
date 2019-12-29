@@ -19,7 +19,15 @@ function initViews(response) {
     let div_content = document.querySelector('#div_content');
 
     let img = document.createElement('img');
-    img.setAttribute('src', '//127.0.0.1:3000/views/image/img06.jpg');
+    if (first_path == 'authors') {
+        img.setAttribute('src', '//127.0.0.1:3000/views/image/img06.jpg');
+    }else if (first_path == 'books') {
+        img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_book.jpg');
+    }else if (first_path == 'users') {
+        img.setAttribute('src', '//127.0.0.1:3000/views/image/img04.jpg');
+    }else if (first_path == 'loans') {
+        img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_book.jpg');
+    }
     img.setAttribute('id', 'img_detail');
     div_content.appendChild(img);
 
@@ -85,7 +93,15 @@ function addItem(container, text) {
     let div = document.createElement('div');
     div.setAttribute('class', 'div_detail_list_item');
     let img = document.createElement('img');
-    img.setAttribute('src', '//127.0.0.1:3000/views/image/img06.jpg');
+    if (first_path == 'authors') {
+        img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_book.jpg');
+    }else if (first_path == 'books') {
+        img.setAttribute('src', '//127.0.0.1:3000/views/image/img06.jpg');
+    }else if (first_path == 'users') {
+        img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_book.jpg');
+    }else if (first_path == 'loans') {
+        img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_book.jpg');
+    }
     img.setAttribute('class', 'img_detail_list');
     div.appendChild(img);
     if (first_path == 'users') {
