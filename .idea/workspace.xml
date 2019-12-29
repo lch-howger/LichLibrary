@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1ebce43-3953-461f-970e-567eddd32b27" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/routes/check.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/js/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/js/add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,18 +39,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/image" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/routes" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\D\Project\LichLibrary\routes" />
       <recent name="C:\D\Project\LichLibrary\views\image" />
       <recent name="C:\D\Project\LichLibrary\views" />
       <recent name="C:\D\Project\LichLibrary\views\js" />
       <recent name="C:\D\Project\LichLibrary\dist" />
-      <recent name="C:\D\Project\LichLibrary\routes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\D\Project\LichLibrary\views\include" />
@@ -88,7 +89,7 @@
       <workItem from="1577379545634" duration="20190000" />
       <workItem from="1577455707584" duration="21607000" />
       <workItem from="1577527479377" duration="36825000" />
-      <workItem from="1577622951172" duration="3845000" />
+      <workItem from="1577622951172" duration="4479000" />
     </task>
     <servers />
   </component>

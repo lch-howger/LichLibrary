@@ -12,6 +12,7 @@ let loansRouter = require("./routes/loans");
 let searchRouter = require("./routes/search");
 let indexRouter = require("./routes/index");
 let errorRouter = require("./routes/error");
+let checkRouter = require("./routes/check");
 
 let server = express();
 
@@ -33,6 +34,7 @@ server.use("/books", booksRouter);
 server.use("/users", usersRouter);
 server.use("/loans", loansRouter);
 server.use("/search", searchRouter);
+server.use("/check", checkRouter);
 server.use("/", indexRouter);
 // server.use("*", errorRouter);
 
