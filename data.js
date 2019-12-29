@@ -23,13 +23,15 @@ sequelize.authenticate().then(
 
 // Author has a Name
 const Author = sequelize.define("Author", {
-    name: Sequelize.STRING
+    name: Sequelize.STRING,
+    imgUrl:Sequelize.STRING
 });
 
 // Book has a Title and an ISBN number
 const Book = sequelize.define("Book", {
     title: Sequelize.STRING,
-    isbn: Sequelize.STRING
+    isbn: Sequelize.STRING,
+    imgUrl: Sequelize.STRING
 });
 
 // Book has one or more Authors
@@ -41,7 +43,8 @@ Author.belongsToMany(Book, { through: "author_books" });
 const User = sequelize.define("User", {
     name: Sequelize.STRING,
     barcode: Sequelize.STRING,
-    memberType: Sequelize.ENUM("Staff", "Student")
+    memberType: Sequelize.ENUM("Staff", "Student"),
+    imgUrl:Sequelize.STRING
 });
 
 // Loan has a DueDate
