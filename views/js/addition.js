@@ -10,15 +10,27 @@ function showAddNewBook() {
 
 function addBook() {
     let bookid = document.querySelector('#input_book_id').value;
-    let query_url = base_url + '/check/bookId/' + bookid;
-    axios.get(query_url)
-        .then(function (response) {
-            if (response.data.check) {
-                addBookById();
-            } else {
-                alert('Sorry. Book Id : ' + bookid + ' does not exist.');
-            }
-        });
+    if (first_path == 'books') {
+        let query_url = base_url + '/check/authorId/' + bookid;
+        axios.get(query_url)
+            .then(function (response) {
+                if (response.data.check) {
+                    addBookById();
+                } else {
+                    alert('Sorry. Author Id : ' + bookid + ' does not exist.');
+                }
+            });
+    } else {
+        let query_url = base_url + '/check/bookId/' + bookid;
+        axios.get(query_url)
+            .then(function (response) {
+                if (response.data.check) {
+                    addBookById();
+                } else {
+                    alert('Sorry. Book Id : ' + bookid + ' does not exist.');
+                }
+            });
+    }
 }
 
 function addBookById() {
