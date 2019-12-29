@@ -351,6 +351,12 @@ footer {
     background: #525E68;
 }
 
-#select_type{
+#select_type {
     margin: 1rem;
+}
+
+.select_time {
+    width: 5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
 }
