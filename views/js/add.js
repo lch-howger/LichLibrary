@@ -18,13 +18,15 @@ function initInputText() {
     } else if (first_path == 'users') {
         createTextAndInput(add_div, 'Name', '01');
         createTextAndInput(add_div, 'Barcode', '02');
-        //createTextAndInput(add_div, 'Member Type', '03');
+
         let select = document.createElement('select');
-        select.setAttribute('id', 'select_type')
+        select.setAttribute('id', 'select_type');
         let option01 = document.createElement('option');
         let option02 = document.createElement('option');
         option01.setAttribute('value', 'Staff');
         option02.setAttribute('value', 'Student');
+        option01.setAttribute('class', 'select_option');
+        option02.setAttribute('class', 'select_option');
         option01.appendChild(document.createTextNode('Staff'));
         option02.appendChild(document.createTextNode('Student'));
         select.appendChild(option01);
@@ -56,7 +58,12 @@ document.querySelector('#add_submit').addEventListener('click', function () {
     } else if (first_path == 'users') {
         let value01 = document.querySelector('#add_input01').value;
         let value02 = document.querySelector('#add_input02').value;
-        let value03 = document.querySelector('#add_input03').value;
+        let value03 = 'Null';
+        document.querySelectorAll('.select_option').forEach(function (option) {
+            if (option.selected == true) {
+                value03 = option.value;
+            }
+        });
         params = {
             name: value01,
             barcode: value02,
