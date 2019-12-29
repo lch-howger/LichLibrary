@@ -11,10 +11,10 @@ const sequelize = new Sequelize("libraryDB", null, null, {
 
 // connect to the database
 sequelize.authenticate().then(
-    function() {
+    function () {
         console.log("Connection has been established successfully.");
     },
-    function(err) {
+    function (err) {
         console.log("Unable to connect to the database:", err);
     }
 );
@@ -24,7 +24,7 @@ sequelize.authenticate().then(
 // Author has a Name
 const Author = sequelize.define("Author", {
     name: Sequelize.STRING,
-    imgUrl:Sequelize.STRING
+    imgUrl: Sequelize.STRING
 });
 
 // Book has a Title and an ISBN number
@@ -35,16 +35,16 @@ const Book = sequelize.define("Book", {
 });
 
 // Book has one or more Authors
-Book.belongsToMany(Author, { through: "author_books" });
+Book.belongsToMany(Author, {through: "author_books"});
 // Author has written one or more Books
-Author.belongsToMany(Book, { through: "author_books" });
+Author.belongsToMany(Book, {through: "author_books"});
 
 // User has a Name, a Barcode and a MemberType (which can be Staff or Student)
 const User = sequelize.define("User", {
     name: Sequelize.STRING,
     barcode: Sequelize.STRING,
     memberType: Sequelize.ENUM("Staff", "Student"),
-    imgUrl:Sequelize.STRING
+    imgUrl: Sequelize.STRING
 });
 
 // Loan has a DueDate
@@ -53,20 +53,20 @@ const Loan = sequelize.define("Loan", {
 });
 
 // A User can have many Loans
-User.hasMany(Loan, { as: "Loans" });
+User.hasMany(Loan, {as: "Loans"});
 // A Book can be on one Loan at a time
 Book.hasOne(Loan);
 
 //  SYNC SCHEMA
-const initialiseDatabase = function(wipeAndClear, repopulate) {
-    sequelize.sync({ force: wipeAndClear }).then(
-        function() {
+const initialiseDatabase = function (wipeAndClear, repopulate) {
+    sequelize.sync({force: wipeAndClear}).then(
+        function () {
             console.log("Database Synchronised");
             if (repopulate) {
                 repopulate();
             }
         },
-        function(err) {
+        function (err) {
             console.log("An error occurred while creating the tables:", err);
         }
     );
