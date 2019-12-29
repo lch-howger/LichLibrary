@@ -51,11 +51,11 @@ function loadData(xhttp, target_url) {
             //img
             let img = document.createElement('img');
             if (first_path == 'authors') {
-                img.setAttribute('src', '../views/image/img06.jpg');
+                img.setAttribute('src', '../views/image/icon_author.png');
             }else if (first_path == 'books') {
                 img.setAttribute('src', '../views/image/icon_book.jpg');
             }else if (first_path == 'users') {
-                img.setAttribute('src', '../views/image/img04.jpg');
+                img.setAttribute('src', '../views/image/icon_author.png');
             }else if (first_path == 'loans') {
                 img.setAttribute('src', '../views/image/icon_book.jpg');
             }
