@@ -9,7 +9,7 @@ function createTextAndInput(add_div, name, num) {
 }
 
 function initInputText() {
-    if (url_pathname.length == 4 && url_pathname[3]=='change') {
+    if (url_pathname.length == 4 && url_pathname[3] == 'change') {
         document.querySelector('#add_submit').setAttribute('value', 'Change');
     }
 
@@ -38,7 +38,12 @@ function initInputText() {
         add_div.appendChild(document.createTextNode('Member Type'));
         add_div.appendChild(select);
     } else if (first_path == 'loans') {
-        createTextAndInput(add_div, 'DueDate', '01');
+        let add_div = document.querySelector('#add_div');
+        add_div.appendChild(document.createTextNode('Due Date'));
+        initSelectInAddDiv(add_div, 'select_year');
+        initSelectInAddDiv(add_div, 'select_month');
+        initSelectInAddDiv(add_div, 'select_day');
+        initSelectTime();
     }
 }
 
@@ -74,7 +79,7 @@ document.querySelector('#add_submit').addEventListener('click', function () {
             memberType: value03,
         };
     } else if (first_path == 'loans') {
-        let value = document.querySelector('#add_input01').value;
+        let value = getDueDateBySelect();
         params = {
             dueDate: value
         };
