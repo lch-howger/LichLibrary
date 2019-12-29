@@ -350,3 +350,7 @@ footer {
 .button_addition:hover {
     background: #525E68;
 }
+
+#select_type{
+    margin: 1rem;
+}

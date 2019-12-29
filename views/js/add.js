@@ -18,8 +18,20 @@ function initInputText() {
     } else if (first_path == 'users') {
         createTextAndInput(add_div, 'Name', '01');
         createTextAndInput(add_div, 'Barcode', '02');
-        createTextAndInput(add_div, 'Member Type', '03');
-    }else if (first_path == 'loans') {
+        //createTextAndInput(add_div, 'Member Type', '03');
+        let select = document.createElement('select');
+        select.setAttribute('id', 'select_type')
+        let option01 = document.createElement('option');
+        let option02 = document.createElement('option');
+        option01.setAttribute('value', 'Staff');
+        option02.setAttribute('value', 'Student');
+        option01.appendChild(document.createTextNode('Staff'));
+        option02.appendChild(document.createTextNode('Student'));
+        select.appendChild(option01);
+        select.appendChild(option02);
+        add_div.appendChild(document.createTextNode('Member Type'));
+        add_div.appendChild(select);
+    } else if (first_path == 'loans') {
         createTextAndInput(add_div, 'DueDate', '01');
     }
 }
@@ -50,7 +62,7 @@ document.querySelector('#add_submit').addEventListener('click', function () {
             barcode: value02,
             memberType: value03,
         };
-    }else if (first_path == 'loans') {
+    } else if (first_path == 'loans') {
         let value = document.querySelector('#add_input01').value;
         params = {
             dueDate: value
