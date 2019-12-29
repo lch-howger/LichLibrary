@@ -39,6 +39,13 @@ header {
     padding: 2rem;
 }
 
+#span_title {
+    color: #8C959E;
+    font-size: 0.8rem;
+    padding-left: 4rem;
+    line-height: 2rem;
+}
+
 footer {
     width: 70rem;
     height: 8rem;
