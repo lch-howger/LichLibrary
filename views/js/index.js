@@ -1,5 +1,7 @@
-function updateList(target_url) {
+function initList() {
 
+    // initialize the placeholder of search bar
+    // initialize the button of add
     if (first_path == 'authors') {
         document.querySelector('#search_text').setAttribute('placeholder', 'Search Authors');
         document.querySelector('#add_button').setAttribute('value', '+ Add Author');
@@ -11,44 +13,48 @@ function updateList(target_url) {
         document.querySelector('#add_button').setAttribute('value', '+ Add User');
     }
 
-    // set up and make a GET request to the Authors endpoint
+    // set up and make a GET request
     let xhttp = new XMLHttpRequest();
-    let query_url = base_url + '/' + target_url + '/list';
+    let query_url = base_url + '/' + first_path + '/list';
     xhttp.open('GET', query_url);
 
-    loadData(xhttp, target_url);
+    // load network data
+    loadData(xhttp);
 }
 
-function loadData(xhttp, target_url) {
+function loadData(xhttp) {
     // when the request is finished, go through the return data
     // and add each author to the list
     xhttp.addEventListener('load', function () {
 
         let author_list = document.querySelector('#authors_list');
+
         // clear the list of existing data
         author_list.innerHTML = '';
 
+        // parse the response
         let authors = JSON.parse(this.response);
-        // loop through all authors
-        authors.forEach(function (author) {
-            // create a new list item for each one and add to the list
 
-            //li
+        // loop through all authors
+        // create a new list item for each one and add to the list
+        authors.forEach(function (author) {
+
+            // create li element
             let list_item = document.createElement('li');
             list_item.setAttribute('class', 'list_item');
             author_list.appendChild(list_item);
 
-            //a
+            // create a element
             let list_item_a = document.createElement('a');
-            list_item_a.setAttribute('href', base_url + '/' + target_url + '/' + author.id);
+            list_item_a.setAttribute('href', base_url + '/' + first_path + '/' + author.id);
             list_item.appendChild(list_item_a);
 
-            //div
+            // create div element
             let list_item_div = document.createElement('div');
             list_item_div.setAttribute('class', 'list_item_div');
             list_item_a.appendChild(list_item_div);
 
-            //img
+            // create img element
             let img = document.createElement('img');
             if (first_path == 'authors') {
                 img.setAttribute('src', 'http://127.0.0.1:3000/views/image/icon_author.png');
@@ -65,42 +71,46 @@ function loadData(xhttp, target_url) {
             img.setAttribute('class', 'list_item_img');
             list_item_div.appendChild(img);
 
-            //text_div
+            // create text in each item
             let list_item_text_div = document.createElement('div');
             list_item_text_div.setAttribute('class', 'list_item_text_div');
             list_item_div.appendChild(list_item_text_div);
 
-            //p
-            initListItemTextDiv(target_url, list_item_text_div, author);
+            // initialize list item
+            initListItemTextDiv(list_item_text_div, author);
 
         })
-
     });
 
+    // send the request
     xhttp.send();
 }
 
-function initListItemTextDiv(target_url, list_item_text_div, author) {
-    let text = document.createTextNode('Null');
+/**
+ * initialize list item
+ * @param list_item_text_div
+ * @param author
+ */
+function initListItemTextDiv(list_item_text_div, author) {
     let div = document.createElement('div');
     div.setAttribute('class', 'list_item_text');
 
-    if (target_url == 'authors') {
+    if (first_path == 'authors') {
         div.appendChild(document.createTextNode('Name: ' + author.name));
         div.appendChild(document.createElement('br'));
-    } else if (target_url == 'books') {
+    } else if (first_path == 'books') {
         div.appendChild(document.createTextNode('Title: ' + author.title));
         div.appendChild(document.createElement('br'));
         div.appendChild(document.createTextNode('Isbn: ' + author.isbn));
         div.appendChild(document.createElement('br'));
-    } else if (target_url == 'users') {
+    } else if (first_path == 'users') {
         div.appendChild(document.createTextNode('Name: ' + author.name));
         div.appendChild(document.createElement('br'));
         div.appendChild(document.createTextNode('Barcode: ' + author.barcode));
         div.appendChild(document.createElement('br'));
         div.appendChild(document.createTextNode('Member Type: ' + author.memberType));
         div.appendChild(document.createElement('br'));
-    } else if (target_url == 'loans') {
+    } else if (first_path == 'loans') {
         div.appendChild(document.createTextNode('DueDate: ' + author.dueDate));
         div.appendChild(document.createElement('br'));
     }
@@ -108,11 +118,11 @@ function initListItemTextDiv(target_url, list_item_text_div, author) {
     list_item_text_div.appendChild(div);
 }
 
-updateList(first_path);
-
+/**
+ * set click event to button for search
+ */
 document.querySelector('#search_button').addEventListener('click', function () {
     let search_value = document.querySelector('#search_text').value;
-
     let search_type = '';
     let allSearchTypes = document.querySelectorAll('.search_type');
     allSearchTypes.forEach(function (type) {
@@ -130,16 +140,24 @@ document.querySelector('#search_button').addEventListener('click', function () {
         type_value = 'user';
     }
 
-    // set up and make a GET request to the Authors endpoint
+    // set up and make a GET request
     let xhttp = new XMLHttpRequest();
     let query_url = base_url + '/search?type=' + type_value + '&' + search_type + '=' + search_value;
     xhttp.open('GET', query_url);
-    loadData(xhttp, first_path);
+
+    // load network data
+    loadData(xhttp);
 });
 
+/**
+ * set click event to button for add
+ */
 document.querySelector('#add_button').addEventListener('click', function () {
     window.location.href = base_url + '/' + first_path + '/add';
 })
+
+// initialize the list
+initList();
 
 
 
