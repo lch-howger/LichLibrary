@@ -3,6 +3,9 @@ const router = express.Router();
 const db = require("../data");
 const ret = require("../lib/return");
 
+/**
+ * check if the author exists by author ID
+ */
 router.get("/authorId/:authorId", function (req, res) {
     db.Author.findByPk(req.params.authorId).then(function (author) {
         if (author) {
@@ -13,6 +16,9 @@ router.get("/authorId/:authorId", function (req, res) {
     });
 });
 
+/**
+ * check if the book exists by book ID
+ */
 router.get("/bookId/:bookId", function (req, res) {
     db.Book.findByPk(req.params.bookId).then(function (book) {
         if (book) {
