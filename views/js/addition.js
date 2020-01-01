@@ -8,6 +8,10 @@ function showAddNewBook() {
     document.querySelector('#content_add_new_book').setAttribute('class', 'display_block');
 }
 
+/**
+ * add book by book ID
+ * check if the book ID exists
+ */
 function addBook() {
     let bookid = document.querySelector('#input_book_id').value;
     if (first_path == 'books') {
@@ -33,6 +37,9 @@ function addBook() {
     }
 }
 
+/**
+ * add book by book ID
+ */
 function addBookById() {
     let bookid = document.querySelector('#input_book_id').value;
     let query_url = href + '/' + bookid;
@@ -53,6 +60,12 @@ function addBookById() {
         })
 }
 
+/**
+ * add new book
+ * params:
+ *      1.bookTitle
+ *      2.bookISBN
+ */
 function addNewBook() {
     let book_title = document.querySelector('#input_book_title').value;
     let query_url = href;
@@ -78,6 +91,10 @@ function addNewBook() {
         });
 }
 
+/**
+ * if location is users page
+ * initialize the select element for select time
+ */
 if (first_path == 'users') {
     initSelectTime();
 }
