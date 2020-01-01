@@ -1,30 +1,30 @@
-
-#color {
-    color: #545652;
-    color: #F0F3F5;
-    color: #6D98D2;
-    color: #268DCD;
-    color: #2277AA;
-    color: #F2F7F6;
-    color: #8C959E;
-    color: #CEE6D5;
-}
-
+/*set all elements margin and padding*/
 * {
     margin: 0px;
     padding: 0px;
 }
 
+/*base background color*/
 body {
     background-color: #F2F7F6;
 }
 
+/*top area */
 #div_page_top {
     background-color: #555555;
     width: 100%;
     height: 2rem;
 }
 
+/*little title in top area*/
+#span_title {
+    color: #8C959E;
+    font-size: 0.8rem;
+    padding-left: 4rem;
+    line-height: 2rem;
+}
+
+/*header area*/
 #div_page_header {
     background-color: #F0F3F5;
 }
@@ -35,18 +35,13 @@ header {
     margin: 0px auto;
 }
 
+/*main title*/
 #title_main {
     color: #268DCD;
     padding: 2rem;
 }
 
-#span_title {
-    color: #8C959E;
-    font-size: 0.8rem;
-    padding-left: 4rem;
-    line-height: 2rem;
-}
-
+/*footer area*/
 footer {
     width: 70rem;
     height: 8rem;
@@ -58,18 +53,21 @@ footer {
     padding: 2rem;
 }
 
+/*main page content*/
 #div_index {
     width: 70rem;
     height: 20rem;
     margin: 0px auto;
 }
 
+/*library logo*/
 #img_library {
     width: 20rem;
     height: 20rem;
     margin-left: 10rem;
 }
 
+/*navigation button*/
 .a_main {
     margin: 1.5rem;
     padding: 0.5rem;
@@ -78,15 +76,18 @@ footer {
     font-weight: bold;
 }
 
+/*navigation button hover*/
 .a_main:hover {
     color: #F0F3F5;
     background-color: #2277AA;
 }
 
+/*navigation title of page*/
 #page_title {
     margin: 2rem;
 }
 
+/*radio group for search type*/
 #div_search_radio {
     width: 70rem;
     height: 2.5rem;
@@ -95,22 +96,20 @@ footer {
     background-color: #F2F7F6;
 }
 
+/*label for radio group*/
 .label_radio {
     padding: 1rem;
     margin: 1rem;
 }
 
+/*area of search and add*/
 #div_search_add {
     width: 70rem;
     height: 7rem;
     margin: 0px auto;
 }
 
-#search_test {
-    width: 70rem;
-    height: 3rem;
-}
-
+/*search bar area*/
 #div_search_bar {
     margin-left: 1.5rem;
     width: 25rem;
@@ -120,6 +119,7 @@ footer {
     margin-top: 0.2rem;
 }
 
+/*input area of search bar*/
 #search_text {
     width: 20rem;
     height: 2rem;
@@ -130,6 +130,7 @@ footer {
     outline: none;
 }
 
+/*button for search*/
 #search_button {
     width: 2.4rem;
     height: 2.2rem;
@@ -144,6 +145,7 @@ footer {
     background-image: url('//127.0.0.1:3000/views/image/icon_search_dark.png');
 }
 
+/*button for add*/
 #add_button {
     width: 7rem;
     height: 2rem;
@@ -160,6 +162,7 @@ footer {
     background: #525E68;
 }
 
+/*main list area*/
 #div_list {
     min-height: 50rem;
     width: 70rem;
@@ -170,6 +173,7 @@ footer {
     list-style: none;
 }
 
+/*item of list*/
 .list_item {
     padding: 1rem;
 }
@@ -182,6 +186,7 @@ footer {
     height: 11rem;
 }
 
+/*image of list item*/
 .list_item_img {
     width: 8rem;
     height: 10rem;
@@ -197,18 +202,21 @@ footer {
     color: #2277AA;
 }
 
+/*class for display none*/
 .display_none {
     display: none;
     padding: 2rem;
     padding-top: 1rem;
 }
 
+/*class for display block*/
 .display_block {
     display: block;
     padding: 2rem;
     padding-top: 1rem;
 }
 
+/*button for change in detail page*/
 #btn_detail_change {
     width: 5rem;
     height: 2rem;
@@ -220,6 +228,7 @@ footer {
     margin: 1rem;
 }
 
+/*button for delete in detail page*/
 #btn_detail_delete {
     width: 5rem;
     height: 2rem;
@@ -231,6 +240,7 @@ footer {
     margin: 1rem;
 }
 
+/*button for addition in detail page*/
 #btn_detail_addition {
     width: 10rem;
     height: 2rem;
@@ -254,6 +264,7 @@ footer {
     background: #525E68;
 }
 
+/*detail area in detail page*/
 #div_detail {
     min-height: 70rem;
     width: 70rem;
@@ -261,21 +272,25 @@ footer {
     margin-top: 1rem;
 }
 
+/*main content area in detail page*/
 #div_content {
     margin: 1.5rem;
     line-height: 2rem;
 }
 
+/*image in detail page*/
 #img_detail {
     width: 8rem;
     height: 10rem;
     display: block;
 }
 
+/*list in detail page*/
 #div_detail_list {
     height: 15rem;
 }
 
+/*item of list in detail page*/
 .div_detail_list_item {
     float: left;
     margin: 2rem;
@@ -289,6 +304,7 @@ footer {
     margin: 0px auto;
 }
 
+/*main content area in page of add*/
 #div_page_add {
     width: 70rem;
     margin: 0px auto;
@@ -304,6 +320,7 @@ footer {
     margin-top: 1rem;
 }
 
+/*button for submit in page of add*/
 #add_submit {
     width: 5rem;
     height: 2rem;
@@ -319,6 +336,7 @@ footer {
     background: #525E68;
 }
 
+/*main content area in addition page*/
 .div_addition {
     width: 70rem;
     margin: 0px auto;
@@ -336,6 +354,7 @@ footer {
     margin-top: 1rem;
 }
 
+/*class for button of addition*/
 .button_addition {
     width: 5rem;
     height: 2rem;
@@ -351,6 +370,7 @@ footer {
     background: #525E68;
 }
 
+/*select element for select type*/
 #select_type {
     margin: 1rem;
 }
@@ -361,6 +381,7 @@ footer {
     margin-left: 1rem;
 }
 
+/*img element for upload image*/
 #img_upload {
     width: 8rem;
     height: 10rem;
@@ -373,10 +394,12 @@ footer {
     content: url("//127.0.0.1:3000/views/image/icon_upload_dark.jpg");
 }
 
+/*button for upload image*/
 #btn_upload {
     outline: none;
 }
 
+/*main content area in error page*/
 #div_error {
     width: 60rem;
     margin: 8rem auto;
