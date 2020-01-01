@@ -2,3 +2,4 @@ node_modules/*
 data/*.sqlite
 .idea/workspace.xml
 .idea/workspace.xml
+*.xml
