@@ -99,6 +99,7 @@ router.put("/:bookID", function (req, res) {
         if (book) {
             book.title = req.body.title;
             book.isbn = req.body.isbn;
+            book.imgUrl = req.body.imgUrl;
             book.save().then(function (book) {
                 ret.json(book, res);
             });

@@ -81,12 +81,13 @@ router.post("/", function (req, res) {
 router.put("/:userID", function (req, res) {
     db.User.findByPk(req.params.userID).then(function (user) {
         if (user) {
-            (user.name = req.body.name),
-                (user.barcode = req.body.barcode),
-                (user.memberType = req.body.memberType),
-                user.save().then(function (user) {
-                    ret.json(user, res);
-                });
+            user.name = req.body.name;
+            user.barcode = req.body.barcode;
+            user.memberType = req.body.memberType;
+            user.imgUrl = req.body.imgUrl;
+            user.save().then(function (user) {
+                ret.json(user, res);
+            });
         } else {
             res.end();
         }

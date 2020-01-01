@@ -97,6 +97,7 @@ router.put("/:authorID", function (req, res) {
     db.Author.findByPk(req.params.authorID).then(function (author) {
         if (author) {
             author.name = req.body.name;
+            author.imgUrl = req.body.imgUrl;
             author.save().then(function (author) {
                 ret.json(author, res);
             });
