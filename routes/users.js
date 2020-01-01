@@ -8,8 +8,8 @@ router.get("/", function (req, res) {
     res.sendfile("./dist/users.html");
 });
 
-router.get("/list", function(req, res) {
-    db.User.findAll().then(function(users) {
+router.get("/list", function (req, res) {
+    db.User.findAll().then(function (users) {
         ret.json(users, res);
     });
 });
@@ -18,7 +18,7 @@ router.get("/add", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
-router.get("/:userID", function(req, res) {
+router.get("/:userID", function (req, res) {
     if (req.query.allEntities == "true") {
         db.User.findByPk(req.params.userID).then(function (user) {
             if (user) {
@@ -36,8 +36,8 @@ router.get("/:authorID/change", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
-router.get("/:userID/loans/list", function(req, res) {
-    db.Loan.findAll({ where: { userId: req.params.userID } }).then(function(loans) {
+router.get("/:userID/loans/list", function (req, res) {
+    db.Loan.findAll({where: {userId: req.params.userID}}).then(function (loans) {
         ret.json(loans, res);
     });
 });
@@ -46,16 +46,16 @@ router.get("/:userID/loans", function (req, res) {
     res.sendfile("./dist/users_addition.html");
 });
 
-router.post("/:userID/loans/:bookID", function(req, res) {
-    db.User.findByPk(req.params.userID).then(function(user) {
+router.post("/:userID/loans/:bookID", function (req, res) {
+    db.User.findByPk(req.params.userID).then(function (user) {
         if (user) {
-            db.Book.findByPk(req.params.bookID).then(function(book) {
+            db.Book.findByPk(req.params.bookID).then(function (book) {
                 if (book) {
                     db.Loan.findOrCreate({
-                        where: { UserId: req.params.userID, BookId: req.params.bookID }
-                    }).spread(function(loan, created) {
+                        where: {UserId: req.params.userID, BookId: req.params.bookID}
+                    }).spread(function (loan, created) {
                         loan.dueDate = new Date(req.body.dueDate);
-                        loan.save().then(function(loan) {
+                        loan.save().then(function (loan) {
                             ret.json(loan, res);
                         });
                     });
@@ -67,23 +67,24 @@ router.post("/:userID/loans/:bookID", function(req, res) {
     });
 });
 
-router.post("/", function(req, res) {
+router.post("/", function (req, res) {
     db.User.create({
         name: req.body.name,
         barcode: req.body.barcode,
-        memberType: req.body.memberType
-    }).then(function(user) {
+        memberType: req.body.memberType,
+        imgUrl: req.body.imgUrl
+    }).then(function (user) {
         ret.json(user, res);
     });
 });
 
-router.put("/:userID", function(req, res) {
-    db.User.findByPk(req.params.userID).then(function(user) {
+router.put("/:userID", function (req, res) {
+    db.User.findByPk(req.params.userID).then(function (user) {
         if (user) {
             (user.name = req.body.name),
                 (user.barcode = req.body.barcode),
                 (user.memberType = req.body.memberType),
-                user.save().then(function(user) {
+                user.save().then(function (user) {
                     ret.json(user, res);
                 });
         } else {
@@ -92,16 +93,16 @@ router.put("/:userID", function(req, res) {
     });
 });
 
-router.delete("/:userID", function(req, res) {
+router.delete("/:userID", function (req, res) {
     db.User.findByPk(req.params.userID)
-        .then(function(user) {
+        .then(function (user) {
             if (user) {
                 return user.destroy();
             } else {
                 res.end();
             }
         })
-        .then(function() {
+        .then(function () {
             res.end();
         });
 });
