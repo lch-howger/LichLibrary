@@ -19,7 +19,7 @@ router.get("/add", function (req, res) {
 });
 
 router.get("/:userID", function (req, res) {
-    if (req.query.allEntities == "true") {
+    if (req.query.allEntities) {
         db.User.findByPk(req.params.userID).then(function (user) {
             if (user) {
                 ret.json(user, res);

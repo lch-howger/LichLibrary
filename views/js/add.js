@@ -31,6 +31,8 @@ function initInputText() {
         option02.setAttribute('value', 'Student');
         option01.setAttribute('class', 'select_option');
         option02.setAttribute('class', 'select_option');
+        option01.setAttribute('id', 'select_option_sta');
+        option02.setAttribute('id', 'select_option_stu');
         option01.appendChild(document.createTextNode('Staff'));
         option02.appendChild(document.createTextNode('Student'));
         select.appendChild(option01);
@@ -51,20 +53,29 @@ initInputText();
 initDetailData();
 
 function initDetailData() {
-    let query_url = base_url + '/' + url_pathname[1] + '/' + url_pathname[2]+'?allEntities=false';
-    if (first_path == 'authors') {
-
-    } else if (first_path == 'books') {
-
-    } else if (first_path == 'users') {
-
-    } else if (first_path == 'loans') {
-
-    }
-
+    let query_url = base_url + '/' + url_pathname[1] + '/' + url_pathname[2] + '?allEntities=false';
     axios.get(query_url)
         .then(function (response) {
-            alert('img是' + response.data.imgUrl);
+            if (first_path == 'authors') {
+                document.querySelector('#add_input01').value = response.data.name;
+            } else if (first_path == 'books') {
+                document.querySelector('#add_input01').value = response.data.title;
+                document.querySelector('#add_input02').value = response.data.isbn;
+            } else if (first_path == 'users') {
+                document.querySelector('#add_input01').value = response.data.name;
+                document.querySelector('#add_input02').value = response.data.barcode;
+                if (response.data.memberType == 'Staff') {
+                    document.querySelector('#select_option_sta').selected = true;
+                    document.querySelector('#select_option_stu').selected = false;
+                } else {
+                    document.querySelector('#select_option_sta').selected = false;
+                    document.querySelector('#select_option_stu').selected = true;
+                }
+            }
+
+            if (response.data.imgUrl != null) {
+                document.querySelector('#img_upload').setAttribute('src', response.data.imgUrl);
+            }
         });
 }
 
