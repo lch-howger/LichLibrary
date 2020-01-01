@@ -1,12 +1,23 @@
+//base url
 const base_url = "http://127.0.0.1:3000";
+
+//current url
 let href = window.location.href;
+
+//current pathname
 let pathname = window.location.pathname;
+
+//current pathname array
 let url_pathname = pathname.split('/');
+
+//current first pathname
 let first_path = url_pathname[1];
 
+/**
+ * initialize page title
+ */
 function initPageTitle() {
     let text = '';
-
     if (first_path == '') {
         text = 'Home';
     } else if (first_path == 'authors') {
@@ -23,4 +34,5 @@ function initPageTitle() {
     page_title.appendChild(title);
 }
 
+// initialize page title
 initPageTitle()
