@@ -17,11 +17,11 @@ function initViews(response) {
     let img = document.createElement('img');
     if (first_path == 'authors') {
         img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_author.png');
-    }else if (first_path == 'books') {
+    } else if (first_path == 'books') {
         img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_book.jpg');
-    }else if (first_path == 'users') {
+    } else if (first_path == 'users') {
         img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_author.png');
-    }else if (first_path == 'loans') {
+    } else if (first_path == 'loans') {
         img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_book.jpg');
     }
     img.setAttribute('id', 'img_detail');
@@ -44,7 +44,7 @@ function initViews(response) {
         let div_container = document.createElement('div');
         div_container.setAttribute('id', 'div_detail_list')
         result.Books.forEach(function (book) {
-            addItem(div_container, book.title);
+            addItem(div_container, book);
         });
         div_content.appendChild(div_container);
 
@@ -60,7 +60,7 @@ function initViews(response) {
         let div_container = document.createElement('div');
         div_container.setAttribute('id', 'div_detail_list')
         result.Authors.forEach(function (author) {
-            addItem(div_container, author.name);
+            addItem(div_container, author);
         });
         div_content.appendChild(div_container);
     } else if (first_path == 'users') {
@@ -72,7 +72,7 @@ function initViews(response) {
         addText(div_content, 'Update Date', result.updatedAt);
         div_content.appendChild(document.createElement('br'));
         addText(div_content, 'Loan List', '');
-    }else if (first_path == 'loans') {
+    } else if (first_path == 'loans') {
         addText(div_content, 'Id', result.id);
         addText(div_content, 'Due Date', result.dueDate);
         addText(div_content, 'Create Date', result.createdAt);
@@ -88,31 +88,45 @@ function addText(div, key, text) {
     div.appendChild(document.createElement('br'));
 }
 
-function addItem(container, text) {
+function addItem(container, data) {
     let div = document.createElement('div');
     div.setAttribute('class', 'div_detail_list_item');
     let img = document.createElement('img');
     if (first_path == 'authors') {
         img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_book.jpg');
-    }else if (first_path == 'books') {
-        img.setAttribute('src', '//127.0.0.1:3000/views/image/img06.jpg');
-    }else if (first_path == 'users') {
-        img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_book.jpg');
-    }else if (first_path == 'loans') {
+    } else if (first_path == 'books') {
+        img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_author.png');
+    } else if (first_path == 'users') {
         img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_book.jpg');
     }
     img.setAttribute('class', 'img_detail_list');
+    if (data.imgUrl != null) {
+        img.setAttribute('src', data.imgUrl);
+    }
     div.appendChild(img);
-    if (first_path == 'users') {
-        let split = text.split('/#/');
-        div.appendChild(document.createTextNode('Book Id : ' + split[0]));
+
+    if (first_path == 'authors') {
+        div.appendChild(document.createTextNode(data.title));
+    } else if (first_path == 'books') {
+        div.appendChild(document.createTextNode(data.name));
+    } else if (first_path == 'users') {
+        div.appendChild(document.createTextNode('Book Id : ' + data.BookId));
         div.appendChild(document.createElement('br'));
-        div.appendChild(document.createTextNode('Due Date : ' + split[1]));
-    } else {
-        div.appendChild(document.createTextNode(text));
+        div.appendChild(document.createTextNode('Due Date : ' + data.dueDate));
     }
 
-    container.appendChild(div);
+    let a = document.createElement('a');
+    let url = '#';
+    if (first_path == 'authors') {
+        url = base_url + '/books/' + data.id
+    } else if (first_path == 'books') {
+        url = base_url + '/authors/' + data.id
+    } else if (first_path == 'users') {
+        url = base_url + '/loans/' + data.id
+    }
+    a.setAttribute('href', url);
+    a.appendChild(div);
+    container.appendChild(a);
 }
 
 function detailChange() {
@@ -159,15 +173,11 @@ function initUserLoans() {
     let query_url = href + '/loans/list';
     axios.get(query_url)
         .then(function (response) {
-            // let div_user_loans = document.querySelector('#div_user_loans');
-            // div_user_loans.innerHTML = '';
-            // let result = JSON.stringify(response.data, null, 4);
-            // div_user_loans.innerText = result;
-
             let div_container = document.createElement('div');
             div_container.setAttribute('id', 'div_detail_list')
             response.data.forEach(function (loan) {
-                addItem(div_container, loan.BookId + '/#/' + loan.dueDate);
+                //addItem(div_container, loan.BookId + '/#/' + loan.dueDate);
+                addItem(div_container, loan);
             });
             div_content.appendChild(div_container);
         });

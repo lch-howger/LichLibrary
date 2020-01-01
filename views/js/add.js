@@ -11,6 +11,7 @@ function createTextAndInput(add_div, name, num) {
 function initInputText() {
     if (url_pathname.length == 4 && url_pathname[3] == 'change') {
         document.querySelector('#add_submit').setAttribute('value', 'Change');
+        initDetailData();
     }
 
     let add_div = document.querySelector('#add_div');
@@ -51,7 +52,6 @@ function initInputText() {
 }
 
 initInputText();
-initDetailData();
 
 function initDetailData() {
     let query_url = base_url + '/' + url_pathname[1] + '/' + url_pathname[2] + '?allEntities=false';
