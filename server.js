@@ -12,7 +12,6 @@ let usersRouter = require("./routes/users");
 let loansRouter = require("./routes/loans");
 let searchRouter = require("./routes/search");
 let indexRouter = require("./routes/index");
-let errorRouter = require("./routes/error");
 let checkRouter = require("./routes/check");
 let uploadRouter = require("./routes/upload");
 
