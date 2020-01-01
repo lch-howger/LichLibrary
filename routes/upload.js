@@ -2,9 +2,12 @@ const express = require("express");
 const router = express.Router();
 const db = require("../data");
 const ret = require("../lib/return");
-const fs = require('fs');
 const multer = require("multer");
 
+/**
+ * save uploaded images into /images directory
+ * @type {DiskStorage}
+ */
 let store = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'images/')
@@ -15,21 +18,19 @@ let store = multer.diskStorage({
     }
 })
 
+/**
+ * create multer object by storage
+ * @type {Multer|undefined}
+ */
 let upload = multer({storage: store});
 
+/**
+ * post /
+ * receive uploaded image and save
+ * return filename
+ */
 router.post("/", upload.single('file'), function (req, res) {
     ret.json({img: req.file.filename}, res);
 });
-
-router.get("/bookId/:bookId", function (req, res) {
-    db.Book.findByPk(req.params.bookId).then(function (book) {
-        if (book) {
-            ret.json({check: true}, res);
-        } else {
-            ret.json({check: false}, res);
-        }
-    });
-});
-
 
 module.exports = router;
