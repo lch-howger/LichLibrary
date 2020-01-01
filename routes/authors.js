@@ -4,17 +4,17 @@ const db = require("../data");
 const ret = require("../lib/return");
 
 /*
-get /
-enter authors pagedz
+ * get /
+ * enter authors pagedz
  */
 router.get("/", function (req, res) {
     res.sendfile("./dist/authors.html");
 });
 
 /*
-get /list
-return author list in json
-if allEntities=='true' return book list
+ * get /list
+ * return author list in json
+ * if allEntities=='true' return book list
  */
 router.get("/list", function (req, res) {
     if (req.query.allEntities == "true") {
@@ -29,16 +29,16 @@ router.get("/list", function (req, res) {
 });
 
 /*
-get /add
-enter add page
+ * get /add
+ * enter add page
  */
 router.get("/add", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
 /*
-get /:authorID
-return detail information according to author ID
+ * get /:authorID
+ * return detail information according to author ID
  */
 router.get("/:authorID", function (req, res) {
     if (req.query.allEntities == "true") {
@@ -63,28 +63,28 @@ router.get("/:authorID", function (req, res) {
 });
 
 /*
-/:authorID/change
-enter add author page
+ * get /:authorID/change
+ * enter add author page
  */
 router.get("/:authorID/change", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
 /*
-/:authorID/books
-enter addition page
-add books for author
+ * get /:authorID/books
+ * enter addition page
+ * add books for author
  */
 router.get("/:authorID/books", function (req, res) {
     res.sendfile("./dist/authors_addition.html");
 });
 
 /*
-post /
-create new author
-params:
-    1.name
-    2.imgUrl
+ * post /
+ * create new author
+ * params:
+ *     1.name
+ *     2.imgUrl
  */
 router.post("/", function (req, res) {
     db.Author.create({name: req.body.name, imgUrl: req.body.imgUrl}).then(function (author) {
@@ -93,11 +93,11 @@ router.post("/", function (req, res) {
 });
 
 /*
-post /:authorID/books
-add new book for author
-params:
-    1.bookTitle
-    2.bookISBN
+ * post /:authorID/books
+ * add new book for author
+ * params:
+ *     1.bookTitle
+ *     2.bookISBN
  */
 router.post("/:authorID/books", function (req, res) {
     db.Author.findByPk(req.params.authorID, {include: [db.Book]}).then(function (author) {
@@ -117,8 +117,8 @@ router.post("/:authorID/books", function (req, res) {
 });
 
 /*
-post /:authorID/books/:bookID
-add book for author by book ID
+ * post /:authorID/books/:bookID
+ * add book for author by book ID
  */
 router.post("/:authorID/books/:bookID", function (req, res) {
     db.Author.findByPk(req.params.authorID, {include: [db.Book]}).then(function (author) {
@@ -138,11 +138,11 @@ router.post("/:authorID/books/:bookID", function (req, res) {
 });
 
 /*
-put /:authorID
-change author by author ID
-params:
-    1.name
-    2.imgUrl
+ * put /:authorID
+ * change author by author ID
+ * params:
+ *     1.name
+ *     2.imgUrl
  */
 router.put("/:authorID", function (req, res) {
     db.Author.findByPk(req.params.authorID).then(function (author) {
@@ -159,8 +159,8 @@ router.put("/:authorID", function (req, res) {
 });
 
 /*
-delete /:authorID
-delete author by author ID
+ * delete /:authorID
+ * delete author by author ID
  */
 router.delete("/:authorID", function (req, res) {
     db.Author.findByPk(req.params.authorID)
