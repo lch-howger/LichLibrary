@@ -2,10 +2,8 @@ const createError = require("http-errors");
 const express = require("express");
 const cors = require("cors");
 const db = require("./data");
-const path = require("path");
-const fs = require("fs");
 
-
+// all the routers
 let authorsRouter = require("./routes/authors");
 let booksRouter = require("./routes/books");
 let usersRouter = require("./routes/users");
@@ -15,6 +13,7 @@ let indexRouter = require("./routes/index");
 let checkRouter = require("./routes/check");
 let uploadRouter = require("./routes/upload");
 
+//initialize express
 let server = express();
 
 // interpret JSON body of requests
@@ -39,8 +38,10 @@ server.use("/check", checkRouter);
 server.use("/upload", uploadRouter);
 server.use("/", indexRouter);
 
-// set images views
+// set static views
 server.use('/views', express.static('views'));
+
+// set static images
 server.use('/images', express.static('images'));
 
 // handle errors last
@@ -49,7 +50,7 @@ server.use(function (err, req, res, next) {
     res.send(err);
 });
 
-// handle 404
+// handle error 404
 server.use(function (req, res, next) {
     res.sendfile('./dist/error.html');
 });
