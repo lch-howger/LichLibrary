@@ -1,19 +1,22 @@
-function updateDetail() {
-    let xhttp = new XMLHttpRequest();
+/**
+ * initialize the detail page information
+ */
+function initDetailInfo() {
     let query_url = href + '?allEntities=true';
-    xhttp.open('GET', query_url);
-    xhttp.addEventListener('load', function () {
-        initViews(this.response);
-    });
-    xhttp.send();
+    axios.get(query_url)
+        .then(function (response) {
+            initViews(response.data);
+        });
 }
 
-updateDetail();
-
-function initViews(response) {
-    let result = JSON.parse(response);
+/**
+ * initialize views by network data
+ * @param result
+ */
+function initViews(result) {
     let div_content = document.querySelector('#div_content');
 
+    // create img element
     let img = document.createElement('img');
     if (first_path == 'authors') {
         img.setAttribute('src', '//127.0.0.1:3000/views/image/icon_author.png');
@@ -28,11 +31,10 @@ function initViews(response) {
     if (result.imgUrl != null) {
         img.setAttribute('src', result.imgUrl);
     }
-
     div_content.appendChild(img);
-
     div_content.appendChild(document.createElement('br'));
 
+    // create text
     if (first_path == 'authors') {
         addText(div_content, 'Id', result.id);
         addText(div_content, 'Name', result.name);
@@ -41,13 +43,13 @@ function initViews(response) {
         div_content.appendChild(document.createElement('br'));
         addText(div_content, 'Book List', '');
 
+        // create book list in authors detail page
         let div_container = document.createElement('div');
         div_container.setAttribute('id', 'div_detail_list')
         result.Books.forEach(function (book) {
             addItem(div_container, book);
         });
         div_content.appendChild(div_container);
-
     } else if (first_path == 'books') {
         addText(div_content, 'Id', result.id);
         addText(div_content, 'Title', result.title);
@@ -57,6 +59,7 @@ function initViews(response) {
         div_content.appendChild(document.createElement('br'));
         addText(div_content, 'Author List', '');
 
+        // create author list in books detail page
         let div_container = document.createElement('div');
         div_container.setAttribute('id', 'div_detail_list')
         result.Authors.forEach(function (author) {
@@ -82,12 +85,23 @@ function initViews(response) {
     }
 }
 
+/**
+ * create text node
+ * @param div
+ * @param key
+ * @param text
+ */
 function addText(div, key, text) {
     let node = document.createTextNode(key + ' : ' + text);
     div.appendChild(node);
     div.appendChild(document.createElement('br'));
 }
 
+/**
+ * create item of list
+ * @param container
+ * @param data
+ */
 function addItem(container, data) {
     let div = document.createElement('div');
     div.setAttribute('class', 'div_detail_list_item');
@@ -105,6 +119,7 @@ function addItem(container, data) {
     }
     div.appendChild(img);
 
+    // create title in item
     if (first_path == 'authors') {
         div.appendChild(document.createTextNode(data.title));
     } else if (first_path == 'books') {
@@ -115,6 +130,8 @@ function addItem(container, data) {
         div.appendChild(document.createTextNode('Due Date : ' + data.dueDate));
     }
 
+    // create a element in item
+    // set url of a element
     let a = document.createElement('a');
     let url = '#';
     if (first_path == 'authors') {
@@ -129,10 +146,18 @@ function addItem(container, data) {
     container.appendChild(a);
 }
 
+/**
+ * event of button for change
+ * enter change page
+ */
 function detailChange() {
     window.location.href = href + '/change';
 }
 
+/**
+ * event of button for delete
+ * delete item
+ */
 function detailDelete() {
     let dialog = confirm("Delete?");
     if (dialog == true) {
@@ -143,6 +168,10 @@ function detailDelete() {
     }
 }
 
+/**
+ * event of button for add
+ * enter add page
+ */
 function detailAdd() {
     if (first_path == 'authors') {
         window.location.href = href + '/books';
@@ -153,6 +182,9 @@ function detailAdd() {
     }
 }
 
+/**
+ * initialize button for addition
+ */
 function initAdditionButton() {
     let button = document.querySelector('#btn_detail_addition');
     if (first_path == 'authors') {
@@ -167,8 +199,9 @@ function initAdditionButton() {
     }
 }
 
-initAdditionButton();
-
+/**
+ * initialize loan list of the user
+ */
 function initUserLoans() {
     let query_url = href + '/loans/list';
     axios.get(query_url)
@@ -182,3 +215,8 @@ function initUserLoans() {
             div_content.appendChild(div_container);
         });
 }
+
+// initialize detail information
+initDetailInfo();
+// initialize button for addition
+initAdditionButton();
