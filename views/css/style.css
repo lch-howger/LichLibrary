@@ -109,6 +109,11 @@ footer {
     margin: 0px auto;
 }
 
+#div_search {
+    width: 70rem;
+    height: 3rem;
+}
+
 /*search bar area*/
 #div_search_bar {
     margin-left: 1.5rem;
