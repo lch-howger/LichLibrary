@@ -31,6 +31,8 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <div class="div_addition">
+
+    <!--radio group for add book of the author-->
     <label for="check_add_book" class="label_addition">
         <input name="addbook" type="radio" id="check_add_book" checked="checked" onclick="showAddBook()">
         <span>Add a Book</span>
@@ -40,6 +42,7 @@
         <span>Add a New Book</span>
     </label>
 
+    <!--choose the radio group to show different content-->
     <div id="content_add_book" class="display_block label_addition">
         Book Id<input type="text" id="input_book_id" class="input_addition"><br>
         <input type="button" value="Add" onclick="addBook()" class="button_addition">

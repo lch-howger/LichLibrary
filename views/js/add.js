@@ -1,19 +1,22 @@
-function createTextAndInput(add_div, name, num) {
-    let text = document.createTextNode(name);
-    let input = document.createElement('input');
-    input.setAttribute('class', 'add_input');
-    input.setAttribute('id', 'add_input' + num);
-    add_div.appendChild(text);
-    add_div.appendChild(input);
-    add_div.appendChild(document.createElement('br'));
-}
-
+/**
+ * initialize text of input element for different page
+ * type:
+ *      1.authors
+ *      2.books
+ *      3.users
+ *      4.loans
+ */
 function initInputText() {
+    // if the size of pathname is 4 and the last pathname is 'change'
+    // location is the page of change
     if (url_pathname.length == 4 && url_pathname[3] == 'change') {
         document.querySelector('#add_submit').setAttribute('value', 'Change');
+
+        // initialize the network data
         initDetailData();
     }
 
+    //create text and input element for different page
     let add_div = document.querySelector('#add_div');
     if (first_path == 'authors') {
         createTextAndInput(add_div, 'Name', '01');
@@ -24,25 +27,14 @@ function initInputText() {
         createTextAndInput(add_div, 'Name', '01');
         createTextAndInput(add_div, 'Barcode', '02');
 
-        let select = document.createElement('select');
-        select.setAttribute('id', 'select_type');
-        let option01 = document.createElement('option');
-        let option02 = document.createElement('option');
-        option01.setAttribute('value', 'Staff');
-        option02.setAttribute('value', 'Student');
-        option01.setAttribute('class', 'select_option');
-        option02.setAttribute('class', 'select_option');
-        option01.setAttribute('id', 'select_option_sta');
-        option02.setAttribute('id', 'select_option_stu');
-        option01.appendChild(document.createTextNode('Staff'));
-        option02.appendChild(document.createTextNode('Student'));
-        select.appendChild(option01);
-        select.appendChild(option02);
-        add_div.appendChild(document.createTextNode('Member Type'));
-        add_div.appendChild(select);
+        //create select element for users page
+        createSelect(add_div);
+
     } else if (first_path == 'loans') {
+        // hide the upload area in loans page
         document.querySelector('#label_upload').setAttribute('class', 'display_none');
-        let add_div = document.querySelector('#add_div');
+
+        //create select element for select time in loans page
         add_div.appendChild(document.createTextNode('Due Date'));
         initSelectInAddDiv(add_div, 'select_year');
         initSelectInAddDiv(add_div, 'select_month');
@@ -51,7 +43,38 @@ function initInputText() {
     }
 }
 
-initInputText();
+/**
+ * create select element in users page
+ * @param add_div
+ */
+function createSelect(add_div) {
+    let select = document.createElement('select');
+    select.setAttribute('id', 'select_type');
+    let option01 = document.createElement('option');
+    let option02 = document.createElement('option');
+    option01.setAttribute('value', 'Staff');
+    option02.setAttribute('value', 'Student');
+    option01.setAttribute('class', 'select_option');
+    option02.setAttribute('class', 'select_option');
+    option01.setAttribute('id', 'select_option_sta');
+    option02.setAttribute('id', 'select_option_stu');
+    option01.appendChild(document.createTextNode('Staff'));
+    option02.appendChild(document.createTextNode('Student'));
+    select.appendChild(option01);
+    select.appendChild(option02);
+    add_div.appendChild(document.createTextNode('Member Type'));
+    add_div.appendChild(select);
+}
+
+function createTextAndInput(add_div, name, num) {
+    let text = document.createTextNode(name);
+    let input = document.createElement('input');
+    input.setAttribute('class', 'add_input');
+    input.setAttribute('id', 'add_input' + num);
+    add_div.appendChild(text);
+    add_div.appendChild(input);
+    add_div.appendChild(document.createElement('br'));
+}
 
 function initDetailData() {
     let query_url = base_url + '/' + url_pathname[1] + '/' + url_pathname[2] + '?allEntities=false';
@@ -173,4 +196,9 @@ function handleImgName(imgName) {
     img_upload.setAttribute('src', img_url);
     img_upload.setAttribute('imgUrl', img_url);
 }
+
+/**
+ * initialize text of input element for different page
+ */
+initInputText();
 
