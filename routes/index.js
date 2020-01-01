@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const fs = require("fs");
 
+/**
+ * enter index page
+ */
 router.get("/", function (req, res) {
     res.sendfile("./dist/index.html");
 });
