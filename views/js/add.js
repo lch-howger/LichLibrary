@@ -66,6 +66,12 @@ function createSelect(add_div) {
     add_div.appendChild(select);
 }
 
+/**
+ * create text and input element
+ * @param add_div
+ * @param name
+ * @param num
+ */
 function createTextAndInput(add_div, name, num) {
     let text = document.createTextNode(name);
     let input = document.createElement('input');
@@ -76,6 +82,10 @@ function createTextAndInput(add_div, name, num) {
     add_div.appendChild(document.createElement('br'));
 }
 
+/**
+ * get detail information
+ * initialize the input element by network data
+ */
 function initDetailData() {
     let query_url = base_url + '/' + url_pathname[1] + '/' + url_pathname[2] + '?allEntities=false';
     axios.get(query_url)
@@ -103,13 +113,23 @@ function initDetailData() {
         });
 }
 
+/**
+ * initialize the click event for the button of submit
+ */
 document.querySelector('#add_submit').addEventListener('click', function () {
+
+    // create request
     let xhttp = new XMLHttpRequest();
     let params = {};
+
+    // get url of image from img element
+    // if url contains 'icon_upload', url = null
     let img_url = document.querySelector('#img_upload').getAttribute('src');
     if (img_url.indexOf('icon_upload') != -1) {
         img_url = null;
     }
+
+    // add different params
     if (first_path == 'authors') {
         let value = document.querySelector('#add_input01').value;
         params = {
@@ -127,7 +147,7 @@ document.querySelector('#add_submit').addEventListener('click', function () {
     } else if (first_path == 'users') {
         let value01 = document.querySelector('#add_input01').value;
         let value02 = document.querySelector('#add_input02').value;
-        let value03 = 'Null';
+        let value03 = 'null';
         document.querySelectorAll('.select_option').forEach(function (option) {
             if (option.selected == true) {
                 value03 = option.value;
@@ -146,28 +166,32 @@ document.querySelector('#add_submit').addEventListener('click', function () {
         };
     }
 
+    // if location is change page, request put method
+    // if location is add page, request post method
     if (url_pathname.length == 4 && url_pathname[3] == 'change') {
         let query_url = base_url + '/' + url_pathname[1] + '/' + url_pathname[2];
         xhttp.open("PUT", query_url);
-
-        xhttp.addEventListener('load', function () {
-            alert('ok');
-            window.location.href = base_url + '/' + first_path;
-        });
     } else {
         let query_url = base_url + "/" + first_path;
         xhttp.open("POST", query_url);
-
-        xhttp.addEventListener('load', function () {
-            alert('ok');
-            window.location.href = base_url + '/' + first_path;
-        });
     }
 
+    // set event load
+    // set content-type
+    xhttp.addEventListener('load', function () {
+        alert('ok');
+        window.location.href = base_url + '/' + first_path;
+    });
     xhttp.setRequestHeader('Content-Type', 'application/json');
+
+    // send request
     xhttp.send(JSON.stringify(params));
 });
 
+/**
+ * find button for upload
+ * if file exists, upload the file
+ */
 function uploadImg() {
     let btn_upload = document.querySelector('#btn_upload');
     if (btn_upload.files.length > 0) {
@@ -175,6 +199,10 @@ function uploadImg() {
     }
 }
 
+/**
+ * upload the file
+ * @param file
+ */
 function upload(file) {
     const param = new FormData();
     param.append("file", file);
@@ -190,6 +218,10 @@ function upload(file) {
         });
 }
 
+/**
+ * handle image name
+ * @param imgName
+ */
 function handleImgName(imgName) {
     let img_upload = document.querySelector('#img_upload');
     let img_url = base_url + '/images/' + imgName;
