@@ -376,3 +376,9 @@ footer {
 #btn_upload {
     outline: none;
 }
+
+#div_error {
+    width: 60rem;
+    margin: 8rem auto;
+    min-height: 10rem;
+}

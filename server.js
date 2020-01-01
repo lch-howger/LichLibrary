@@ -39,11 +39,6 @@ server.use("/search", searchRouter);
 server.use("/check", checkRouter);
 server.use("/upload", uploadRouter);
 server.use("/", indexRouter);
-// server.use("*", errorRouter);
-
-// server.use(function (req, res) {
-//     res.sendfile("./dist/error.html");
-// });
 
 // set images views
 server.use('/views', express.static('views'));
@@ -53,6 +48,11 @@ server.use('/images', express.static('images'));
 server.use(function (err, req, res, next) {
     res.status = err.status || 500;
     res.send(err);
+});
+
+// handle 404
+server.use(function (req, res, next) {
+    res.sendfile('./dist/error.html');
 });
 
 // connect to the database and start the server running
