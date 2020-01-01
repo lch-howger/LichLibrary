@@ -52,11 +52,11 @@ initInputText();
 document.querySelector('#add_submit').addEventListener('click', function () {
     let xhttp = new XMLHttpRequest();
     let params = {};
+    let img_url = document.querySelector('#img_upload').getAttribute('src');
+    if (img_url.indexOf('icon_upload') != -1) {
+        img_url = null;
+    }
     if (first_path == 'authors') {
-        let img_url = document.querySelector('#img_upload').getAttribute('src');
-        if (img_url.indexOf('icon_upload') != -1) {
-            img_url = null;
-        }
         let value = document.querySelector('#add_input01').value;
         params = {
             name: value,
@@ -67,7 +67,8 @@ document.querySelector('#add_submit').addEventListener('click', function () {
         let value02 = document.querySelector('#add_input02').value;
         params = {
             title: value01,
-            isbn: value02
+            isbn: value02,
+            imgUrl: img_url
         };
     } else if (first_path == 'users') {
         let value01 = document.querySelector('#add_input01').value;
@@ -82,6 +83,7 @@ document.querySelector('#add_submit').addEventListener('click', function () {
             name: value01,
             barcode: value02,
             memberType: value03,
+            imgUrl: img_url
         };
     } else if (first_path == 'loans') {
         let value = getDueDateBySelect();
