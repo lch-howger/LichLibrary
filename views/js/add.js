@@ -48,6 +48,19 @@ function initInputText() {
 }
 
 initInputText();
+initDetailData();
+
+function initDetailData() {
+    if (first_path == 'authors') {
+
+    } else if (first_path == 'books') {
+
+    } else if (first_path == 'users') {
+
+    } else if (first_path == 'loans') {
+
+    }
+}
 
 document.querySelector('#add_submit').addEventListener('click', function () {
     let xhttp = new XMLHttpRequest();
