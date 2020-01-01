@@ -1,3 +1,7 @@
+/**
+ * get due date from select element
+ * @returns {string}
+ */
 function getDueDateBySelect() {
     let y = 2000;
     let m = 1;
@@ -25,6 +29,9 @@ function getDueDateBySelect() {
     return '' + y + '-' + m + '-' + d;
 }
 
+/**
+ * initialize the select element
+ */
 function initSelectTime() {
     let select_year = document.querySelector('#select_year');
     for (let i = 2000; i < 2100; i++) {
@@ -54,6 +61,11 @@ function initSelectTime() {
     }
 }
 
+/**
+ * create select element
+ * @param add_div
+ * @param id
+ */
 function initSelectInAddDiv(add_div, id) {
     let select = document.createElement('select');
     select.setAttribute('class', 'select_time');
