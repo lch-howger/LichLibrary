@@ -40,6 +40,7 @@ function initInputText() {
         add_div.appendChild(document.createTextNode('Member Type'));
         add_div.appendChild(select);
     } else if (first_path == 'loans') {
+        document.querySelector('#label_upload').setAttribute('class', 'display_none');
         let add_div = document.querySelector('#add_div');
         add_div.appendChild(document.createTextNode('Due Date'));
         initSelectInAddDiv(add_div, 'select_year');
