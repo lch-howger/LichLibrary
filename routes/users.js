@@ -1,23 +1,40 @@
 const express = require("express");
 const router = express.Router();
-
 const db = require("../data");
 const ret = require("../lib/return");
 
+/**
+ * get /
+ * enter users page
+ * show user list
+ */
 router.get("/", function (req, res) {
     res.sendfile("./dist/users.html");
 });
 
+/**
+ * get /list
+ * return user list
+ */
 router.get("/list", function (req, res) {
     db.User.findAll().then(function (users) {
         ret.json(users, res);
     });
 });
 
+/**
+ * get /add
+ * enter add page
+ * add new user
+ */
 router.get("/add", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
+/**
+ * get /:userID
+ * get user detail by user ID
+ */
 router.get("/:userID", function (req, res) {
     if (req.query.allEntities) {
         db.User.findByPk(req.params.userID).then(function (user) {
@@ -32,20 +49,40 @@ router.get("/:userID", function (req, res) {
     }
 });
 
+/**
+ * get /:authorID/change
+ * enter change page
+ */
 router.get("/:authorID/change", function (req, res) {
     res.sendfile("./dist/add.html");
 });
 
+/**
+ * get /:userID/loans/list
+ * return loan list of the user by user ID
+ */
 router.get("/:userID/loans/list", function (req, res) {
     db.Loan.findAll({where: {userId: req.params.userID}}).then(function (loans) {
         ret.json(loans, res);
     });
 });
 
+/**
+ * get /:userID/loans
+ * enter addition page
+ * add loan for the user
+ */
 router.get("/:userID/loans", function (req, res) {
     res.sendfile("./dist/users_addition.html");
 });
 
+/**
+ * post /:userID/loans/:bookID
+ * add new loan for the user
+ * params:
+ *      1.userID
+ *      2.bookID
+ */
 router.post("/:userID/loans/:bookID", function (req, res) {
     db.User.findByPk(req.params.userID).then(function (user) {
         if (user) {
@@ -67,6 +104,15 @@ router.post("/:userID/loans/:bookID", function (req, res) {
     });
 });
 
+/**
+ * post /
+ * create new user
+ * params:
+ *      1.name
+ *      2.barcode
+ *      3.memberType
+ *      4.imgUrl
+ */
 router.post("/", function (req, res) {
     db.User.create({
         name: req.body.name,
@@ -78,6 +124,10 @@ router.post("/", function (req, res) {
     });
 });
 
+/**
+ * put /:userID
+ * change user detail by user ID
+ */
 router.put("/:userID", function (req, res) {
     db.User.findByPk(req.params.userID).then(function (user) {
         if (user) {
@@ -94,6 +144,10 @@ router.put("/:userID", function (req, res) {
     });
 });
 
+/**
+ * delete /:userID
+ * delete user by user ID
+ */
 router.delete("/:userID", function (req, res) {
     db.User.findByPk(req.params.userID)
         .then(function (user) {
