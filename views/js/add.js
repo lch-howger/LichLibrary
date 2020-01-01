@@ -51,6 +51,7 @@ initInputText();
 initDetailData();
 
 function initDetailData() {
+    let query_url = base_url + '/' + url_pathname[1] + '/' + url_pathname[2]+'?allEntities=false';
     if (first_path == 'authors') {
 
     } else if (first_path == 'books') {
@@ -60,6 +61,11 @@ function initDetailData() {
     } else if (first_path == 'loans') {
 
     }
+
+    axios.get(query_url)
+        .then(function (response) {
+            alert('img是' + response.data.imgUrl);
+        });
 }
 
 document.querySelector('#add_submit').addEventListener('click', function () {

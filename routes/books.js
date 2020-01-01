@@ -33,15 +33,17 @@ router.get("/:bookID", function (req, res) {
                 res.end();
             }
         });
+    } else if (req.query.allEntities == "false") {
+        db.Book.findByPk(req.params.bookID).then(function (book) {
+            if (book) {
+                ret.json(book, res);
+            } else {
+                res.end();
+            }
+        });
     } else {
         res.sendfile("./dist/detail.html");
-        // db.Book.findByPk(req.params.bookID).then(function(book) {
-        //     if (book) {
-        //         ret.json(book, res);
-        //     } else {
-        //         res.end();
-        //     }
-        // });
+
     }
 });
 

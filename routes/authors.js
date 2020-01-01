@@ -33,15 +33,16 @@ router.get("/:authorID", function (req, res) {
                 res.end();
             }
         });
+    } else if (req.query.allEntities == "false") {
+        db.Author.findByPk(req.params.authorID).then(function (author) {
+            if (author) {
+                ret.json(author, res);
+            } else {
+                res.end();
+            }
+        });
     } else {
         res.sendfile("./dist/detail.html");
-        // db.Author.findByPk(req.params.authorID).then(function(author) {
-        //     if (author) {
-        //         ret.json(author, res);
-        //     } else {
-        //         res.end();
-        //     }
-        // });
     }
 });
 
