@@ -53,9 +53,14 @@ document.querySelector('#add_submit').addEventListener('click', function () {
     let xhttp = new XMLHttpRequest();
     let params = {};
     if (first_path == 'authors') {
+        let img_url = document.querySelector('#img_upload').getAttribute('src');
+        if (img_url.indexOf('icon_upload') != -1) {
+            img_url = null;
+        }
         let value = document.querySelector('#add_input01').value;
         params = {
-            name: value
+            name: value,
+            imgUrl: img_url
         };
     } else if (first_path == 'books') {
         let value01 = document.querySelector('#add_input01').value;
@@ -105,6 +110,34 @@ document.querySelector('#add_submit').addEventListener('click', function () {
 
     xhttp.setRequestHeader('Content-Type', 'application/json');
     xhttp.send(JSON.stringify(params));
-})
+});
 
+function uploadImg() {
+    let btn_upload = document.querySelector('#btn_upload');
+    if (btn_upload.files.length > 0) {
+        upload(btn_upload.files[0]);
+    }
+}
+
+function upload(file) {
+    const param = new FormData();
+    param.append("file", file);
+    const config = {
+        headers: {"Content-Type": "multipart/form-data"}
+    };
+    axios.post(base_url + "/upload", param, config)
+        .then(function (response) {
+            handleImgName(response.data.img);
+        })
+        .catch(function (error) {
+            alert(error);
+        });
+}
+
+function handleImgName(imgName) {
+    let img_upload = document.querySelector('#img_upload');
+    let img_url = base_url + '/images/' + imgName;
+    img_upload.setAttribute('src', img_url);
+    img_upload.setAttribute('imgUrl', img_url);
+}
 

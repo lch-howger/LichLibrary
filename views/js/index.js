@@ -51,12 +51,16 @@ function loadData(xhttp, target_url) {
             //img
             let img = document.createElement('img');
             if (first_path == 'authors') {
-                img.setAttribute('src', '../views/image/icon_author.png');
-            }else if (first_path == 'books') {
+                if (author.imgUrl == null) {
+                    img.setAttribute('src', 'http://127.0.0.1:3000/views/image/icon_author.png');
+                } else {
+                    img.setAttribute('src', author.imgUrl);
+                }
+            } else if (first_path == 'books') {
                 img.setAttribute('src', '../views/image/icon_book.jpg');
-            }else if (first_path == 'users') {
+            } else if (first_path == 'users') {
                 img.setAttribute('src', '../views/image/icon_author.png');
-            }else if (first_path == 'loans') {
+            } else if (first_path == 'loans') {
                 img.setAttribute('src', '../views/image/icon_book.jpg');
             }
             img.setAttribute('class', 'list_item_img');

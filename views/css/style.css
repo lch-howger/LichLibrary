@@ -360,3 +360,19 @@ footer {
     margin-top: 1rem;
     margin-left: 1rem;
 }
+
+#img_upload {
+    width: 8rem;
+    height: 10rem;
+    margin-left: 4rem;
+    margin-top: 2rem;
+    margin-right: 1rem;
+}
+
+#img_upload:hover {
+    content: url("//127.0.0.1:3000/views/image/icon_upload_dark.jpg");
+}
+
+#btn_upload {
+    outline: none;
+}

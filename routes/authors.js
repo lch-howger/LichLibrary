@@ -54,7 +54,7 @@ router.get("/:authorID/books", function (req, res) {
 });
 
 router.post("/", function (req, res) {
-    db.Author.create({name: req.body.name}).then(function (author) {
+    db.Author.create({name: req.body.name, imgUrl: req.body.imgUrl}).then(function (author) {
         ret.json(author, res);
     });
 });
