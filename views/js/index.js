@@ -113,6 +113,10 @@ function initListItemTextDiv(list_item_text_div, author) {
     } else if (first_path == 'loans') {
         div.appendChild(document.createTextNode('DueDate: ' + author.dueDate));
         div.appendChild(document.createElement('br'));
+        div.appendChild(document.createTextNode('User ID: ' + author.UserId));
+        div.appendChild(document.createElement('br'));
+        div.appendChild(document.createTextNode('Book ID: ' + author.BookId));
+        div.appendChild(document.createElement('br'));
     }
 
     list_item_text_div.appendChild(div);
