@@ -29,12 +29,29 @@ function addBook() {
         axios.get(query_url)
             .then(function (response) {
                 if (response.data.check) {
-                    addBookById();
+                    if (first_path == 'users') {
+                        checkBookOut();
+                    } else {
+                        addBookById();
+                    }
                 } else {
                     alert('Sorry. Book Id : ' + bookid + ' does not exist.');
                 }
             });
     }
+}
+
+function checkBookOut() {
+    let bookid = document.querySelector('#input_book_id').value;
+    let query_url = base_url + '/check/loans/' + bookid;
+    axios.get(query_url)
+        .then(function (response) {
+            if (!response.data.check) {
+                addBookById()
+            } else {
+                alert('Sorry. Book Id : ' + bookid + ' has already loaned out.');
+            }
+        });
 }
 
 /**
