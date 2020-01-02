@@ -118,6 +118,9 @@ function initListItemTextDiv(list_item_text_div, author) {
     list_item_text_div.appendChild(div);
 }
 
+// initialize the list
+initList();
+
 /**
  * set click event to button for search
  */
@@ -156,8 +159,7 @@ document.querySelector('#add_button').addEventListener('click', function () {
     window.location.href = base_url + '/' + first_path + '/add';
 })
 
-// initialize the list
-initList();
+
 
 
 
