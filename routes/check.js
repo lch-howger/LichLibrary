@@ -29,6 +29,18 @@ router.get("/bookId/:bookId", function (req, res) {
     });
 });
 
+/**
+ * check if the book is already out
+ */
+router.get("/loans/:bookId", function (req, res) {
+    db.Loan.findOne({where: {BookId: req.params.bookId}}).then(function (loan) {
+        if (loan) {
+            ret.json({check: true}, res);
+        } else {
+            ret.json({check: false}, res);
+        }
+    });
+});
 
 
 module.exports = router;
